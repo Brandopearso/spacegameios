@@ -20,21 +20,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var player = SKSpriteNode(imageNamed: "player.png")
     var score: Int = 0
     var scoreLabel = UILabel()
+    var button: SKNode! = nil
     
     override func didMoveToView(view: SKView) {
         
         physicsWorld.contactDelegate = self
     
-        player.position = CGPointMake((self.size.width / 2), (self.size.height / 5))
+        player.position = CGPointMake((self.size.width / 5), (self.size.height / 2))
         player.physicsBody = SKPhysicsBody(rectangleOfSize: player.size)
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.categoryBitMask = physicsCategory.player
         player.physicsBody?.contactTestBitMask = physicsCategory.enemy
         player.physicsBody?.dynamic = false
         
+        // Create a simple red rectangle that's 100x44
+        button = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 100, height: 44))
+        // Put it in the center of the scene
+        button.position = CGPoint(x:self.size.width / 2, y:self.size.height / 2);
+        
+        self.addChild(button)
+        
         
         //set timer to bullet once it reaches view
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: #selector(GameScene.spawnBullets), userInfo: nil, repeats: true)
+        //var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(GameScene.spawnBullets), userInfo: nil, repeats: true)
         
         //set timer to enemy once it reaches view
         var enemyTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameScene.spawnEnemy), userInfo: nil, repeats: true)
@@ -53,8 +61,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBeginContact(contact: SKPhysicsContact) {
         
-        var firstBody : SKPhysicsBody = contact.bodyA
-        var secondBody : SKPhysicsBody = contact.bodyB
+        let firstBody : SKPhysicsBody = contact.bodyA
+        let secondBody : SKPhysicsBody = contact.bodyB
         
         if (((firstBody.categoryBitMask == physicsCategory.enemy) && (secondBody.categoryBitMask == physicsCategory.bullet)) ||
             ((firstBody.categoryBitMask == physicsCategory.bullet) && (secondBody.categoryBitMask == physicsCategory.enemy))){
@@ -77,15 +85,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func spawnEnemy() {
         
         let enemy = SKSpriteNode(imageNamed: "enemy.png")
-        let minValue = self.size.width / 8
-        let maxValue = self.size.width - 20
+        let minValue = self.size.height / 6
+        let maxValue = self.size.height
         
         //UInt32 for precision
         let spawnPoint = UInt32(maxValue - minValue)
-        enemy.position = CGPoint(x: CGFloat(arc4random_uniform(spawnPoint)), y: self.size.height)
+        enemy.position = CGPoint(x: self.size.width, y: CGFloat(arc4random_uniform(spawnPoint)))
         
         //create action object to give to bullet. give +30 to height so that bullet goes off screen
-        let action = SKAction.moveToY(-70, duration: 3.0)
+        let action = SKAction.moveToX(-70, duration: 3.0)
         
         // ???
         let actionDone = SKAction.removeFromParent()
@@ -99,7 +107,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         self.addChild(enemy)
-        
     }
     
     func spawnBullets() {
@@ -114,7 +121,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bullet.position = CGPointMake(player.position.x, player.position.y)
         
         //create action object to give to bullet. give +30 to height so that bullet goes off screen
-        let action = SKAction.moveToY(self.size.height + 30, duration: 0.6)
+        let action = SKAction.moveToX(self.size.width + 30, duration: 1.0)
         
         // ???
         let actionDone = SKAction.removeFromParent()
@@ -145,7 +152,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for touch in touches {
             let location = touch.locationInNode(self)
             
-            player.position.x = location.x
+            player.position.x = location.x + 100
+            player.position.y = location.y
+            
+            // Check if the location of the touch is within the button's bounds
+            if button.containsPoint(location) {
+                spawnBullets()
+            }
         }
     }
     
@@ -154,11 +167,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for touch in touches {
             let location = touch.locationInNode(self)
             
-            player.position.x = location.x
+            player.position.x = location.x + 100
+            player.position.y = location.y
+            
         }
     }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+
 }
