@@ -17,7 +17,7 @@
 		0183846F1D867A5200BAD87A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0183846D1D867A5200BAD87A /* LaunchScreen.storyboard */; };
 		0183847A1D867A5200BAD87A /* SpaceGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384791D867A5200BAD87A /* SpaceGameTests.swift */; };
 		018384851D867A5200BAD87A /* SpaceGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384841D867A5200BAD87A /* SpaceGameUITests.swift */; };
-		0194B9F81D9090F000FC7C0A /* squid.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 0194B9F71D9090F000FC7C0A /* squid.atlas */; };
+		01DAA2BF1DBB5D0300D341C0 /* squid.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 01DAA2BE1DBB5D0300D341C0 /* squid.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 		018384801D867A5200BAD87A /* SpaceGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		018384841D867A5200BAD87A /* SpaceGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceGameUITests.swift; sourceTree = "<group>"; };
 		018384861D867A5200BAD87A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0194B9F71D9090F000FC7C0A /* squid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = squid.atlas; path = ../../squid.atlas; sourceTree = "<group>"; };
+		01DAA2BE1DBB5D0300D341C0 /* squid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = squid.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,7 @@
 				018384641D867A5200BAD87A /* GameScene.swift */,
 				018384661D867A5200BAD87A /* GameViewController.swift */,
 				018384681D867A5200BAD87A /* Main.storyboard */,
-				0194B9F71D9090F000FC7C0A /* squid.atlas */,
+				01DAA2BE1DBB5D0300D341C0 /* squid.atlas */,
 				0183846B1D867A5200BAD87A /* Assets.xcassets */,
 				0183846D1D867A5200BAD87A /* LaunchScreen.storyboard */,
 				0158CE521DBB50EB00E8E90C /* sprites */,
@@ -243,8 +243,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				018384631D867A5200BAD87A /* GameScene.sks in Resources */,
-				0194B9F81D9090F000FC7C0A /* squid.atlas in Resources */,
 				0183846F1D867A5200BAD87A /* LaunchScreen.storyboard in Resources */,
+				01DAA2BF1DBB5D0300D341C0 /* squid.atlas in Resources */,
 				0158CE531DBB50EC00E8E90C /* sprites in Resources */,
 				0183846C1D867A5200BAD87A /* Assets.xcassets in Resources */,
 				0183846A1D867A5200BAD87A /* Main.storyboard in Resources */,
