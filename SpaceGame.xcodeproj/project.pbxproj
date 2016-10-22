@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0158CE4F1DBB4BE600E8E90C /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 0158CE4E1DBB4BE600E8E90C /* player.png */; };
-		0158CE511DBB4BF600E8E90C /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0158CE501DBB4BF600E8E90C /* bullet.png */; };
+		0158CE531DBB50EC00E8E90C /* sprites in Resources */ = {isa = PBXBuildFile; fileRef = 0158CE521DBB50EB00E8E90C /* sprites */; };
 		018384611D867A5200BAD87A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384601D867A5200BAD87A /* AppDelegate.swift */; };
 		018384631D867A5200BAD87A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 018384621D867A5200BAD87A /* GameScene.sks */; };
 		018384651D867A5200BAD87A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384641D867A5200BAD87A /* GameScene.swift */; };
@@ -39,8 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0158CE4E1DBB4BE600E8E90C /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = player.png; path = ../../../../Downloads/player.png; sourceTree = "<group>"; };
-		0158CE501DBB4BF600E8E90C /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullet.png; path = ../../../../Downloads/bullet.png; sourceTree = "<group>"; };
+		0158CE521DBB50EB00E8E90C /* sprites */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sprites; sourceTree = "<group>"; };
 		0183845D1D867A5200BAD87A /* SpaceGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		018384601D867A5200BAD87A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		018384621D867A5200BAD87A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -114,9 +112,8 @@
 				018384681D867A5200BAD87A /* Main.storyboard */,
 				0194B9F71D9090F000FC7C0A /* squid.atlas */,
 				0183846B1D867A5200BAD87A /* Assets.xcassets */,
-				0158CE4E1DBB4BE600E8E90C /* player.png */,
-				0158CE501DBB4BF600E8E90C /* bullet.png */,
 				0183846D1D867A5200BAD87A /* LaunchScreen.storyboard */,
+				0158CE521DBB50EB00E8E90C /* sprites */,
 				018384701D867A5200BAD87A /* Info.plist */,
 			);
 			path = SpaceGame;
@@ -246,10 +243,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				018384631D867A5200BAD87A /* GameScene.sks in Resources */,
-				0158CE511DBB4BF600E8E90C /* bullet.png in Resources */,
-				0158CE4F1DBB4BE600E8E90C /* player.png in Resources */,
 				0194B9F81D9090F000FC7C0A /* squid.atlas in Resources */,
 				0183846F1D867A5200BAD87A /* LaunchScreen.storyboard in Resources */,
+				0158CE531DBB50EC00E8E90C /* sprites in Resources */,
 				0183846C1D867A5200BAD87A /* Assets.xcassets in Resources */,
 				0183846A1D867A5200BAD87A /* Main.storyboard in Resources */,
 			);

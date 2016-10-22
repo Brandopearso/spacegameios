@@ -17,7 +17,7 @@ struct physicsCategory {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var player = SKSpriteNode(imageNamed: "player.png")
+    var player = SKSpriteNode(imageNamed: "sprites/player.png")
     var score: Int = 0
     var scoreLabel = UILabel()
     var button: SKNode! = nil
@@ -127,7 +127,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func spawnBullets() {
         
         //creating bullet obj
-        let bullet = SKSpriteNode(imageNamed: "bullet.png")
+        let bullet = SKSpriteNode(imageNamed: "sprites/bullet.png")
         
         //give illusion of spawning from ship
         bullet.zPosition = -5
