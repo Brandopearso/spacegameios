@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0158CE4F1DBB4BE600E8E90C /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 0158CE4E1DBB4BE600E8E90C /* player.png */; };
+		0158CE511DBB4BF600E8E90C /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0158CE501DBB4BF600E8E90C /* bullet.png */; };
 		018384611D867A5200BAD87A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384601D867A5200BAD87A /* AppDelegate.swift */; };
 		018384631D867A5200BAD87A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 018384621D867A5200BAD87A /* GameScene.sks */; };
 		018384651D867A5200BAD87A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384641D867A5200BAD87A /* GameScene.swift */; };
@@ -16,6 +18,7 @@
 		0183846F1D867A5200BAD87A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0183846D1D867A5200BAD87A /* LaunchScreen.storyboard */; };
 		0183847A1D867A5200BAD87A /* SpaceGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384791D867A5200BAD87A /* SpaceGameTests.swift */; };
 		018384851D867A5200BAD87A /* SpaceGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384841D867A5200BAD87A /* SpaceGameUITests.swift */; };
+		0194B9F81D9090F000FC7C0A /* squid.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 0194B9F71D9090F000FC7C0A /* squid.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0158CE4E1DBB4BE600E8E90C /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = player.png; path = ../../../../Downloads/player.png; sourceTree = "<group>"; };
+		0158CE501DBB4BF600E8E90C /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullet.png; path = ../../../../Downloads/bullet.png; sourceTree = "<group>"; };
 		0183845D1D867A5200BAD87A /* SpaceGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		018384601D867A5200BAD87A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		018384621D867A5200BAD87A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -51,6 +56,7 @@
 		018384801D867A5200BAD87A /* SpaceGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		018384841D867A5200BAD87A /* SpaceGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceGameUITests.swift; sourceTree = "<group>"; };
 		018384861D867A5200BAD87A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0194B9F71D9090F000FC7C0A /* squid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = squid.atlas; path = ../../squid.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +112,10 @@
 				018384641D867A5200BAD87A /* GameScene.swift */,
 				018384661D867A5200BAD87A /* GameViewController.swift */,
 				018384681D867A5200BAD87A /* Main.storyboard */,
+				0194B9F71D9090F000FC7C0A /* squid.atlas */,
 				0183846B1D867A5200BAD87A /* Assets.xcassets */,
+				0158CE4E1DBB4BE600E8E90C /* player.png */,
+				0158CE501DBB4BF600E8E90C /* bullet.png */,
 				0183846D1D867A5200BAD87A /* LaunchScreen.storyboard */,
 				018384701D867A5200BAD87A /* Info.plist */,
 			);
@@ -199,6 +208,7 @@
 				TargetAttributes = {
 					0183845C1D867A5200BAD87A = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = Z8VNMGSA8E;
 					};
 					018384741D867A5200BAD87A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -236,6 +246,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				018384631D867A5200BAD87A /* GameScene.sks in Resources */,
+				0158CE511DBB4BF600E8E90C /* bullet.png in Resources */,
+				0158CE4F1DBB4BE600E8E90C /* player.png in Resources */,
+				0194B9F81D9090F000FC7C0A /* squid.atlas in Resources */,
 				0183846F1D867A5200BAD87A /* LaunchScreen.storyboard in Resources */,
 				0183846C1D867A5200BAD87A /* Assets.xcassets in Resources */,
 				0183846A1D867A5200BAD87A /* Main.storyboard in Resources */,
@@ -407,10 +420,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SpaceGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CondoSoft.SpaceGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -418,10 +434,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SpaceGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CondoSoft.SpaceGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -492,6 +511,7 @@
 				0183848B1D867A5200BAD87A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0183848C1D867A5200BAD87A /* Build configuration list for PBXNativeTarget "SpaceGameTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +520,7 @@
 				0183848E1D867A5200BAD87A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0183848F1D867A5200BAD87A /* Build configuration list for PBXNativeTarget "SpaceGameUITests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +529,7 @@
 				018384911D867A5200BAD87A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

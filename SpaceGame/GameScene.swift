@@ -8,15 +8,157 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+struct physicsCategory {
+    
+    static let enemy: UInt32 = 1
+    static let bullet: UInt32 = 2
+    static let player: UInt32 = 3
+}
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    var player = SKSpriteNode(imageNamed: "player.png")
+    var score: Int = 0
+    var scoreLabel = UILabel()
+    var button: SKNode! = nil
+    
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         
-        self.addChild(myLabel)
+        physicsWorld.contactDelegate = self
+    
+        player.position = CGPointMake((self.size.width / 5), (self.size.height / 2))
+        player.physicsBody = SKPhysicsBody(rectangleOfSize: player.size)
+        player.physicsBody?.affectedByGravity = false
+        player.physicsBody?.categoryBitMask = physicsCategory.player
+        player.physicsBody?.contactTestBitMask = physicsCategory.enemy
+        player.physicsBody?.dynamic = false
+        
+        // Create a simple red rectangle that's 100x44
+        button = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 200, height: 100))
+        // Put it in the center of the scene
+        button.position = CGPoint(x:self.size.width - 100, y:200);
+        
+        self.addChild(button)
+        
+        
+        //set timer to bullet once it reaches view
+        //var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(GameScene.spawnBullets), userInfo: nil, repeats: true)
+        
+        //set timer to enemy once it reaches view
+        var enemyTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameScene.spawnEnemy), userInfo: nil, repeats: true)
+        
+        //add player to the view
+        self.addChild(player)
+        
+        scoreLabel.text = "\(score)"
+        scoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+        scoreLabel.backgroundColor = UIColor.blackColor()
+        scoreLabel.textColor = UIColor.whiteColor()
+        
+        self.view?.addSubview(scoreLabel)
+        
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        
+        let firstBody : SKPhysicsBody = contact.bodyA
+        let secondBody : SKPhysicsBody = contact.bodyB
+        
+        if (((firstBody.categoryBitMask == physicsCategory.enemy) && (secondBody.categoryBitMask == physicsCategory.bullet)) ||
+            ((firstBody.categoryBitMask == physicsCategory.bullet) && (secondBody.categoryBitMask == physicsCategory.enemy))){
+            
+            collisionWithBullet(firstBody.node as! SKSpriteNode, bullet: secondBody.node as! SKSpriteNode)
+            
+        }
+        
+    }
+    
+    func collisionWithBullet(enemy: SKSpriteNode, bullet: SKSpriteNode) {
+        
+        enemy.removeFromParent()
+        bullet.removeFromParent()
+        score+=1
+        
+        scoreLabel.text = "\(score)"
+    }
+    
+    func spawnEnemy() {
+        
+        let enemy = SKSpriteNode(imageNamed: "squid_1.png")
+        var actions = Array<SKAction>();
+        let minValue = self.size.height / 6
+        let maxValue = self.size.height
+        
+        //UInt32 for precision
+        let spawnPoint = UInt32(maxValue - minValue)
+        enemy.position = CGPoint(x: self.size.width, y: CGFloat(arc4random_uniform(spawnPoint)))
+        
+        let TextureAtlas = SKTextureAtlas(named: "squid")
+        
+        let animation = SKAction.animateWithTextures([
+        
+            TextureAtlas.textureNamed("squid_1.png"),
+            TextureAtlas.textureNamed("squid_2.png"),
+            TextureAtlas.textureNamed("squid_3.png"),
+            TextureAtlas.textureNamed("squid_4.png")
+            ], timePerFrame:0.25)
+        
+        //create action object to give to bullet. give +30 to height so that bullet goes off screen
+        let action = SKAction.moveToX(-70, duration: 3.0)
+        
+        // ???
+        let actionDone = SKAction.removeFromParent()
+        actions.append(SKAction.sequence([action, actionDone]))
+        actions.append(SKAction.repeatActionForever(animation))
+        
+        let group = SKAction.group(actions);
+        enemy.runAction(group)
+        
+        enemy.physicsBody = SKPhysicsBody(rectangleOfSize: enemy.size)
+        enemy.physicsBody?.categoryBitMask = physicsCategory.enemy
+        enemy.physicsBody?.contactTestBitMask = physicsCategory.bullet
+        enemy.physicsBody?.affectedByGravity = false
+        enemy.physicsBody?.dynamic = true
+        
+        
+        self.addChild(enemy)
+    }
+    
+    func spawnBullets() {
+        
+        //creating bullet obj
+        let bullet = SKSpriteNode(imageNamed: "bullet.png")
+        
+        //give illusion of spawning from ship
+        bullet.zPosition = -5
+        
+        //give ship a spawn point on the map
+        bullet.position = CGPointMake(player.position.x, player.position.y)
+        
+        //create action object to give to bullet. give +30 to height so that bullet goes off screen
+        let action = SKAction.moveToX(self.size.width + 30, duration: 1.0)
+        
+        // ???
+        let actionDone = SKAction.removeFromParent()
+        bullet.runAction(SKAction.sequence([action, actionDone]))
+        
+        //assign physics body to parent
+        bullet.physicsBody = SKPhysicsBody(rectangleOfSize: bullet.size)
+        
+        //assign bitmask of 1 to categorybitmask so that bullets will register as a 1 in bitmask
+        bullet.physicsBody?.categoryBitMask = physicsCategory.bullet
+        
+        //set the obj that we're going to collide with as a bullet (enemy)
+        bullet.physicsBody?.contactTestBitMask = physicsCategory.enemy
+        
+        //forget gravity
+        bullet.physicsBody?.affectedByGravity = false
+        
+        //???
+        bullet.physicsBody?.dynamic = false
+        
+        //add bullet to the scene
+        self.addChild(bullet)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -25,21 +167,31 @@ class GameScene: SKScene {
         for touch in touches {
             let location = touch.locationInNode(self)
             
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
+            // Check if the location of the touch is within the button's bounds
+            if button.containsPoint(location) {
+                spawnBullets()
+            }
+            else {
+                
+                player.position.x = location.x + 130
+                player.position.y = location.y
+            }
+        }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        for touch in touches {
+            let location = touch.locationInNode(self)
             
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
+            player.position.x = location.x + 130
+            player.position.y = location.y
             
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
         }
     }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+
 }
