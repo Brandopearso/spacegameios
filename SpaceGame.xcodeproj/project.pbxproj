@@ -19,6 +19,8 @@
 		018384851D867A5200BAD87A /* SpaceGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384841D867A5200BAD87A /* SpaceGameUITests.swift */; };
 		01DAA2BF1DBB5D0300D341C0 /* squid.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 01DAA2BE1DBB5D0300D341C0 /* squid.atlas */; };
 		F921A9DF1DBBDD4500439426 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F921A9DE1DBBDD4500439426 /* SettingsViewController.swift */; };
+		F9AC69C01DC0016E00D1EC7C /* Night-Winds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F9AC69BF1DC0016E00D1EC7C /* Night-Winds.mp3 */; };
+		F9AC69C21DC00AEB00D1EC7C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC69C11DC00AEB00D1EC7C /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		018384861D867A5200BAD87A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01DAA2BE1DBB5D0300D341C0 /* squid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = squid.atlas; sourceTree = "<group>"; };
 		F921A9DE1DBBDD4500439426 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F9AC69BF1DC0016E00D1EC7C /* Night-Winds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Night-Winds.mp3"; path = "Assets.xcassets/Night-Winds.mp3"; sourceTree = "<group>"; };
+		F9AC69C11DC00AEB00D1EC7C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		0183845F1D867A5200BAD87A /* SpaceGame */ = {
 			isa = PBXGroup;
 			children = (
+				F9AC69BF1DC0016E00D1EC7C /* Night-Winds.mp3 */,
 				018384601D867A5200BAD87A /* AppDelegate.swift */,
 				018384621D867A5200BAD87A /* GameScene.sks */,
 				018384641D867A5200BAD87A /* GameScene.swift */,
@@ -118,6 +123,7 @@
 				0158CE521DBB50EB00E8E90C /* sprites */,
 				018384701D867A5200BAD87A /* Info.plist */,
 				F921A9DE1DBBDD4500439426 /* SettingsViewController.swift */,
+				F9AC69C11DC00AEB00D1EC7C /* MenuViewController.swift */,
 			);
 			path = SpaceGame;
 			sourceTree = "<group>";
@@ -248,6 +254,7 @@
 				018384631D867A5200BAD87A /* GameScene.sks in Resources */,
 				0183846F1D867A5200BAD87A /* LaunchScreen.storyboard in Resources */,
 				01DAA2BF1DBB5D0300D341C0 /* squid.atlas in Resources */,
+				F9AC69C01DC0016E00D1EC7C /* Night-Winds.mp3 in Resources */,
 				0158CE531DBB50EC00E8E90C /* sprites in Resources */,
 				0183846C1D867A5200BAD87A /* Assets.xcassets in Resources */,
 				0183846A1D867A5200BAD87A /* Main.storyboard in Resources */,
@@ -276,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				018384651D867A5200BAD87A /* GameScene.swift in Sources */,
+				F9AC69C21DC00AEB00D1EC7C /* MenuViewController.swift in Sources */,
 				018384671D867A5200BAD87A /* GameViewController.swift in Sources */,
 				018384611D867A5200BAD87A /* AppDelegate.swift in Sources */,
 				F921A9DF1DBBDD4500439426 /* SettingsViewController.swift in Sources */,

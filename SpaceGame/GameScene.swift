@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 struct physicsCategory {
     
@@ -21,6 +22,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var score: Int = 0
     var scoreLabel = UILabel()
     var button: SKNode! = nil
+    
+    var audioPlayer: AVAudioPlayer?
     
     override func didMoveToView(view: SKView) {
         
@@ -57,7 +60,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.view?.addSubview(scoreLabel)
         
+        // Start music
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let music = defaults.boolForKey("backgroundMusic")
+        if (music == true) {
+            playSound()
+        }
     }
+    
+    func playSound() {
+        let url = NSBundle.mainBundle().URLForResource("Night-Winds", withExtension: "mp3")!
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOfURL: url)
+            guard let audioPlayer = audioPlayer else { return }
+            
+            audioPlayer.prepareToPlay()
+            audioPlayer.numberOfLoops = -1
+            audioPlayer.play()
+        } catch let error as NSError {
+            print(error.description)
+        }
+    }
+
     
     func didBeginContact(contact: SKPhysicsContact) {
         

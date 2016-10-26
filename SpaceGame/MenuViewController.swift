@@ -14,6 +14,14 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let music = defaults.objectForKey("backgroundMusic") as? Bool {
+            // Its already set
+            print(music)
+        } else {
+            defaults.setBool(true, forKey: "backgroundMusic")
+        }
+        defaults.synchronize()
     }
 
     override func didReceiveMemoryWarning() {

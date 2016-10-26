@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="pyC-7c-lhl">
             <objects>
-                <viewController id="eWh-dK-bl2" sceneMemberID="viewController">
+                <viewController id="eWh-dK-bl2" customClass="MenuViewController" customModule="SpaceGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kEO-VY-enl"/>
                         <viewControllerLayoutGuide type="bottom" id="EkP-4B-l1g"/>
@@ -91,6 +91,7 @@
                         <viewControllerLayoutGuide type="bottom" id="P3d-my-Teb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IUb-KF-3F1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erl-nw-Q24">

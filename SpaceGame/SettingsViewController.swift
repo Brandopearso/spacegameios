@@ -13,8 +13,10 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var musicToggleButton: UIButton!
     @IBOutlet weak var sfxToggleButton: UIButton!
     
-    private var musicToggle:Bool?
-    private var sfxToggle:Bool?
+    private var musicToggle:Bool!
+    private var sfxToggle:Bool!
+    
+    private var defaults:NSUserDefaults!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +24,15 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // TODO: Read music/sfx settings from player settings and set button texts. Set bool values.
-        musicToggle = true
         sfxToggle = true
+        
+        defaults = NSUserDefaults.standardUserDefaults()
+        if (defaults.boolForKey("backgroundMusic")) {
+            musicToggle = true
+        } else {
+            musicToggle = false
+            musicToggleButton.setTitle("Music Off", forState: .Normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,14 +41,16 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func musicToggleButtonHandler(sender: AnyObject) {
-        if (musicToggle! == true) {
+        if (musicToggle == true) {
             musicToggle = false
             musicToggleButton.setTitle("Music Off", forState: .Normal)
+            defaults.setBool(false, forKey: "backgroundMusic")
         } else {
             musicToggle = true
             musicToggleButton.setTitle("Music On", forState: .Normal)
-            
+            defaults.setBool(true, forKey: "backgroundMusic")
         }
+        defaults.synchronize()
     }
     
     @IBAction func sfxToggleButtonHandler(sender: AnyObject) {
