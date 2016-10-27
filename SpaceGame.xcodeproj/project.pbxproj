@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		01033B681DBC833E0059F8E5 /* LevelSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01033B671DBC833E0059F8E5 /* LevelSelectionViewController.swift */; };
-		01033B701DBD71A30059F8E5 /* space_no_planets.png in Resources */ = {isa = PBXBuildFile; fileRef = 01033B6F1DBD71A20059F8E5 /* space_no_planets.png */; };
 		01033B8C1DBDB0650059F8E5 /* VenusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01033B8B1DBDB0650059F8E5 /* VenusViewController.swift */; };
 		01033B8E1DBDB0CA0059F8E5 /* VenusScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01033B8D1DBDB0CA0059F8E5 /* VenusScene.swift */; };
 		01033B901DBDB18C0059F8E5 /* EarthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01033B8F1DBDB18C0059F8E5 /* EarthViewController.swift */; };
@@ -24,6 +23,7 @@
 		0183847A1D867A5200BAD87A /* SpaceGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384791D867A5200BAD87A /* SpaceGameTests.swift */; };
 		018384851D867A5200BAD87A /* SpaceGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384841D867A5200BAD87A /* SpaceGameUITests.swift */; };
 		0188C1101DC0923300484440 /* laser.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0188C10F1DC0923300484440 /* laser.mp3 */; };
+		0188C1121DC2C0A000484440 /* space_no_planets.png in Resources */ = {isa = PBXBuildFile; fileRef = 0188C1111DC2C0A000484440 /* space_no_planets.png */; };
 		01B3BC101DC06795007B4C4D /* EarthScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01B3BC0F1DC06795007B4C4D /* EarthScene.sks */; };
 		01B3BC121DC06BA3007B4C4D /* VenusScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01B3BC111DC06BA2007B4C4D /* VenusScene.sks */; };
 		01B3BC161DC06D0D007B4C4D /* MarsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01B3BC131DC06D0D007B4C4D /* MarsScene.sks */; };
@@ -66,7 +66,6 @@
 
 /* Begin PBXFileReference section */
 		01033B671DBC833E0059F8E5 /* LevelSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectionViewController.swift; sourceTree = "<group>"; };
-		01033B6F1DBD71A20059F8E5 /* space_no_planets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = space_no_planets.png; path = ../../../../Music/space_no_planets.png; sourceTree = "<group>"; };
 		01033B8B1DBDB0650059F8E5 /* VenusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenusViewController.swift; sourceTree = "<group>"; };
 		01033B8D1DBDB0CA0059F8E5 /* VenusScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenusScene.swift; sourceTree = "<group>"; };
 		01033B8F1DBDB18C0059F8E5 /* EarthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		018384841D867A5200BAD87A /* SpaceGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceGameUITests.swift; sourceTree = "<group>"; };
 		018384861D867A5200BAD87A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0188C10F1DC0923300484440 /* laser.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = laser.mp3; sourceTree = "<group>"; };
+		0188C1111DC2C0A000484440 /* space_no_planets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = space_no_planets.png; sourceTree = "<group>"; };
 		01B3BC0F1DC06795007B4C4D /* EarthScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EarthScene.sks; sourceTree = "<group>"; };
 		01B3BC111DC06BA2007B4C4D /* VenusScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = VenusScene.sks; sourceTree = "<group>"; };
 		01B3BC131DC06D0D007B4C4D /* MarsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MarsScene.sks; sourceTree = "<group>"; };
@@ -179,6 +179,7 @@
 				01B3BC2C1DC0726F007B4C4D /* NeptuneScene.swift */,
 				01B3BC2D1DC0726F007B4C4D /* NeptuneViewController.swift */,
 				01B3BC261DC0710C007B4C4D /* UranusScene.swift */,
+				0188C1111DC2C0A000484440 /* space_no_planets.png */,
 				01B3BC271DC0710C007B4C4D /* UranusViewController.swift */,
 				01B3BC1B1DC06E69007B4C4D /* JupiterViewController.swift */,
 				01B3BC151DC06D0D007B4C4D /* MarsViewController.swift */,
@@ -191,7 +192,6 @@
 				01DAA2BE1DBB5D0300D341C0 /* squid.atlas */,
 				0183846B1D867A5200BAD87A /* Assets.xcassets */,
 				0183846D1D867A5200BAD87A /* LaunchScreen.storyboard */,
-				01033B6F1DBD71A20059F8E5 /* space_no_planets.png */,
 				0158CE521DBB50EB00E8E90C /* sprites */,
 				018384701D867A5200BAD87A /* Info.plist */,
 				F921A9DE1DBBDD4500439426 /* SettingsViewController.swift */,
@@ -326,9 +326,9 @@
 				018384631D867A5200BAD87A /* GameScene.sks in Resources */,
 				0183846F1D867A5200BAD87A /* LaunchScreen.storyboard in Resources */,
 				01B3BC2E1DC0726F007B4C4D /* NeptuneScene.sks in Resources */,
-				01033B701DBD71A30059F8E5 /* space_no_planets.png in Resources */,
 				01B3BC281DC0710C007B4C4D /* UranusScene.sks in Resources */,
 				01B3BC161DC06D0D007B4C4D /* MarsScene.sks in Resources */,
+				0188C1121DC2C0A000484440 /* space_no_planets.png in Resources */,
 				01DAA2BF1DBB5D0300D341C0 /* squid.atlas in Resources */,
 				F9AC69C01DC0016E00D1EC7C /* Night-Winds.mp3 in Resources */,
 				01B3BC221DC06F67007B4C4D /* SaturnScene.sks in Resources */,
