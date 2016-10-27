@@ -42,7 +42,7 @@ class SaturnScene: SKScene, SKPhysicsContactDelegate {
         //var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(GameScene.spawnBullets), userInfo: nil, repeats: true)
         
         //set timer to enemy once it reaches view
-        var enemyTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameScene.spawnEnemy), userInfo: nil, repeats: true)
+        _ = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameScene.spawnEnemy), userInfo: nil, repeats: true)
         
         //add player to the view
         self.addChild(player)
