@@ -25,10 +25,11 @@ class SettingsViewController: UIViewController {
         
         // TODO: Read music/sfx settings from player settings and set button texts. Set bool values.
         sfxToggle = true
-        
+        musicToggle = true
         defaults = NSUserDefaults.standardUserDefaults()
         if (defaults.boolForKey("backgroundMusic")) {
             musicToggle = true
+            musicToggleButton.setTitle("Music On", forState: .Normal)
         } else {
             musicToggle = false
             musicToggleButton.setTitle("Music Off", forState: .Normal)
@@ -45,6 +46,7 @@ class SettingsViewController: UIViewController {
             musicToggle = false
             musicToggleButton.setTitle("Music Off", forState: .Normal)
             defaults.setBool(false, forKey: "backgroundMusic")
+            
         } else {
             musicToggle = true
             musicToggleButton.setTitle("Music On", forState: .Normal)
@@ -57,9 +59,11 @@ class SettingsViewController: UIViewController {
         if (sfxToggle! == true) {
             sfxToggle = false
             sfxToggleButton.setTitle("SFX Off", forState: .Normal)
+            //defaults.setBool(false, forKey: "sfx")
         } else {
             sfxToggle = true
             sfxToggleButton.setTitle("SFX On", forState: .Normal)
+            //defaults.setBool(true, forKey: "sfx")
         }
     }
 

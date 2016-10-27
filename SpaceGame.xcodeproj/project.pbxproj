@@ -23,6 +23,7 @@
 		0183846F1D867A5200BAD87A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0183846D1D867A5200BAD87A /* LaunchScreen.storyboard */; };
 		0183847A1D867A5200BAD87A /* SpaceGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384791D867A5200BAD87A /* SpaceGameTests.swift */; };
 		018384851D867A5200BAD87A /* SpaceGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384841D867A5200BAD87A /* SpaceGameUITests.swift */; };
+		0188C1101DC0923300484440 /* laser.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0188C10F1DC0923300484440 /* laser.mp3 */; };
 		01B3BC101DC06795007B4C4D /* EarthScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01B3BC0F1DC06795007B4C4D /* EarthScene.sks */; };
 		01B3BC121DC06BA3007B4C4D /* VenusScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01B3BC111DC06BA2007B4C4D /* VenusScene.sks */; };
 		01B3BC161DC06D0D007B4C4D /* MarsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01B3BC131DC06D0D007B4C4D /* MarsScene.sks */; };
@@ -86,6 +87,7 @@
 		018384801D867A5200BAD87A /* SpaceGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		018384841D867A5200BAD87A /* SpaceGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceGameUITests.swift; sourceTree = "<group>"; };
 		018384861D867A5200BAD87A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0188C10F1DC0923300484440 /* laser.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = laser.mp3; sourceTree = "<group>"; };
 		01B3BC0F1DC06795007B4C4D /* EarthScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EarthScene.sks; sourceTree = "<group>"; };
 		01B3BC111DC06BA2007B4C4D /* VenusScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = VenusScene.sks; sourceTree = "<group>"; };
 		01B3BC131DC06D0D007B4C4D /* MarsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MarsScene.sks; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				01B3BC141DC06D0D007B4C4D /* MarsScene.swift */,
 				01B3BC191DC06E69007B4C4D /* JupiterScene.sks */,
 				01B3BC1A1DC06E69007B4C4D /* JupiterScene.swift */,
+				0188C10F1DC0923300484440 /* laser.mp3 */,
 				01B3BC1F1DC06F67007B4C4D /* SaturnScene.sks */,
 				01B3BC201DC06F67007B4C4D /* SaturnScene.swift */,
 				01B3BC211DC06F67007B4C4D /* SaturnViewController.swift */,
@@ -334,6 +337,7 @@
 				01B3BC121DC06BA3007B4C4D /* VenusScene.sks in Resources */,
 				01B3BC1C1DC06E69007B4C4D /* JupiterScene.sks in Resources */,
 				0183846A1D867A5200BAD87A /* Main.storyboard in Resources */,
+				0188C1101DC0923300484440 /* laser.mp3 in Resources */,
 				01B3BC101DC06795007B4C4D /* EarthScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

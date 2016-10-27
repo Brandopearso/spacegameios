@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class MarsScene: SKScene, SKPhysicsContactDelegate {
     
@@ -14,6 +15,9 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
     var score: Int = 0
     var scoreLabel = UILabel()
     var button: SKNode! = nil
+    
+    var audioPlayer: AVAudioPlayer?
+    var audioLaser: AVAudioPlayer?
     
     override func didMoveToView(view: SKView) {
         
@@ -50,6 +54,13 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         
         self.view?.addSubview(scoreLabel)
         
+        // Start music
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let music = defaults.boolForKey("backgroundMusic")
+        if (music == true) {
+            playSound()
+        }
+        
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -64,6 +75,21 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
+    }
+    
+    func playSound() {
+        let url = NSBundle.mainBundle().URLForResource("Night-Winds", withExtension: "mp3")!
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOfURL: url)
+            guard let audioPlayer = audioPlayer else { return }
+            
+            audioPlayer.prepareToPlay()
+            audioPlayer.numberOfLoops = -1
+            audioPlayer.play()
+        } catch let error as NSError {
+            print(error.description)
+        }
     }
     
     func collisionWithBullet(enemy: SKSpriteNode, bullet: SKSpriteNode) {
@@ -149,6 +175,23 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         
         //???
         bullet.physicsBody?.dynamic = false
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let fx = defaults.boolForKey("sfx")
+        if (fx == true) {
+            
+            let laserSound = NSBundle.mainBundle().URLForResource("laser", withExtension: "mp3")!
+            do {
+                self.audioLaser = try AVAudioPlayer(contentsOfURL: laserSound)
+                guard let audioLaser = audioLaser else { return }
+                audioLaser.prepareToPlay()
+                audioLaser.play()
+            } catch let error as NSError {
+                
+                print(error.description)
+            }
+        }
+
         
         //add bullet to the scene
         self.addChild(bullet)

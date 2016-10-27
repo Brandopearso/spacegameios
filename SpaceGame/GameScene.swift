@@ -24,6 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var button: SKNode! = nil
     
     var audioPlayer: AVAudioPlayer?
+    var audioLaser: AVAudioPlayer?
     
     override func didMoveToView(view: SKView) {
         
@@ -59,7 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.textColor = UIColor.whiteColor()
         
         self.view?.addSubview(scoreLabel)
-        
+
         // Start music
         let defaults = NSUserDefaults.standardUserDefaults()
         let music = defaults.boolForKey("backgroundMusic")
@@ -82,7 +83,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print(error.description)
         }
     }
-
     
     func didBeginContact(contact: SKPhysicsContact) {
         
@@ -181,6 +181,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //???
         bullet.physicsBody?.dynamic = false
+ 
+        let laserSound = NSBundle.mainBundle().URLForResource("laser", withExtension: "mp3")!
+        do {
+            self.audioLaser = try AVAudioPlayer(contentsOfURL: laserSound)
+            guard let audioLaser = audioLaser else { return }
+            audioLaser.prepareToPlay()
+            audioLaser.play()
+        } catch let error as NSError {
+            
+            print(error.description)
+        }
         
         //add bullet to the scene
         self.addChild(bullet)

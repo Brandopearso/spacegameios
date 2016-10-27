@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class NeptuneScene: SKScene, SKPhysicsContactDelegate {
     
@@ -14,6 +15,8 @@ class NeptuneScene: SKScene, SKPhysicsContactDelegate {
     var score: Int = 0
     var scoreLabel = UILabel()
     var button: SKNode! = nil
+    var audioPlayer: AVAudioPlayer?
+    var audioLaser: AVAudioPlayer?
     
     override func didMoveToView(view: SKView) {
         
@@ -49,9 +52,27 @@ class NeptuneScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.textColor = UIColor.whiteColor()
         
         self.view?.addSubview(scoreLabel)
-        
+        // Start music
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let music = defaults.boolForKey("backgroundMusic")
+        if (music == true) {
+            playSound()
+        }
     }
-    
+    func playSound() {
+        let url = NSBundle.mainBundle().URLForResource("Night-Winds", withExtension: "mp3")!
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOfURL: url)
+            guard let audioPlayer = audioPlayer else { return }
+            
+            audioPlayer.prepareToPlay()
+            audioPlayer.numberOfLoops = -1
+            audioPlayer.play()
+        } catch let error as NSError {
+            print(error.description)
+        }
+    }
     func didBeginContact(contact: SKPhysicsContact) {
         
         let firstBody : SKPhysicsBody = contact.bodyA
@@ -149,6 +170,17 @@ class NeptuneScene: SKScene, SKPhysicsContactDelegate {
         
         //???
         bullet.physicsBody?.dynamic = false
+        
+        let laserSound = NSBundle.mainBundle().URLForResource("laser", withExtension: "mp3")!
+        do {
+            self.audioLaser = try AVAudioPlayer(contentsOfURL: laserSound)
+            guard let audioLaser = audioLaser else { return }
+            audioLaser.prepareToPlay()
+            audioLaser.play()
+        } catch let error as NSError {
+            
+            print(error.description)
+        }
         
         //add bullet to the scene
         self.addChild(bullet)
