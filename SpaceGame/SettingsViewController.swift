@@ -34,6 +34,13 @@ class SettingsViewController: UIViewController {
             musicToggle = false
             musicToggleButton.setTitle("Music Off", forState: .Normal)
         }
+        if (defaults.boolForKey("sfx")) {
+            sfxToggle = true
+            sfxToggleButton.setTitle("SFX On", forState: .Normal)
+        } else {
+            sfxToggle = false
+            sfxToggleButton.setTitle("SFX Off", forState: .Normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +49,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func musicToggleButtonHandler(sender: AnyObject) {
-        if (musicToggle == true) {
+        if (musicToggle! == true) {
             musicToggle = false
             musicToggleButton.setTitle("Music Off", forState: .Normal)
             defaults.setBool(false, forKey: "backgroundMusic")
@@ -59,11 +66,11 @@ class SettingsViewController: UIViewController {
         if (sfxToggle! == true) {
             sfxToggle = false
             sfxToggleButton.setTitle("SFX Off", forState: .Normal)
-            //defaults.setBool(false, forKey: "sfx")
+            defaults.setBool(false, forKey: "sfx")
         } else {
             sfxToggle = true
             sfxToggleButton.setTitle("SFX On", forState: .Normal)
-            //defaults.setBool(true, forKey: "sfx")
+            defaults.setBool(true, forKey: "sfx")
         }
     }
     

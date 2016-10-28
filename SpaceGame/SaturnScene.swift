@@ -177,6 +177,10 @@ class SaturnScene: SKScene, SKPhysicsContactDelegate {
         //???
         bullet.physicsBody?.dynamic = false
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let fx = defaults.boolForKey("sfx")
+        
+        if (fx) {
         let laserSound = NSBundle.mainBundle().URLForResource("laser", withExtension: "mp3")!
         do {
             self.audioLaser = try AVAudioPlayer(contentsOfURL: laserSound)
@@ -186,6 +190,7 @@ class SaturnScene: SKScene, SKPhysicsContactDelegate {
         } catch let error as NSError {
             
             print(error.description)
+        }
         }
         
         //add bullet to the scene

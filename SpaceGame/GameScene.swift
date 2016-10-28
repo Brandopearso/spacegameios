@@ -189,6 +189,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //???
         bullet.physicsBody?.dynamic = false
  
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let fx = defaults.boolForKey("sfx")
+        
+        if (fx) {
         let laserSound = NSBundle.mainBundle().URLForResource("laser", withExtension: "mp3")!
         do {
             self.audioLaser = try AVAudioPlayer(contentsOfURL: laserSound)
@@ -199,7 +204,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             print(error.description)
         }
-        
+    }
+    
         //add bullet to the scene
         self.addChild(bullet)
     }
