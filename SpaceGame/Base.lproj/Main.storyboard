@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Menu View Controller-->
@@ -17,12 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="gWM-vv-Qbc">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8V-3b-8mQ">
                                 <rect key="frame" x="146" y="262" width="62" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="8fx-Dd-REV"/>
                                 </constraints>
-                                <state key="normal" title="Start"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <variation key="heightClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="101" y="240" width="58" height="30"/>
                                 </variation>
@@ -38,7 +44,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="67" id="Fmz-gh-PgD"/>
                                 </constraints>
-                                <state key="normal" title="Settings"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <variation key="heightClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="403" y="240" width="95" height="30"/>
                                 </variation>
@@ -49,19 +57,26 @@
                                     <segue destination="Jwt-rK-ajZ" kind="show" id="rUg-qU-Iv2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Solar Space" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X8-fh-uN3">
-                                <rect key="frame" x="228" y="63" width="211" height="64"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Solar Space" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X8-fh-uN3">
+                                <rect key="frame" x="263" y="175" width="211" height="64"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="r8V-3b-8mQ" firstAttribute="baseline" secondItem="8we-Og-kTS" secondAttribute="baseline" id="GQB-cG-ju0"/>
+                            <constraint firstItem="gWM-vv-Qbc" firstAttribute="leading" secondItem="xNj-c3-ERP" secondAttribute="leadingMargin" constant="-20" id="QSR-6V-RGJ"/>
+                            <constraint firstItem="gWM-vv-Qbc" firstAttribute="top" secondItem="xNj-c3-ERP" secondAttribute="topMargin" id="UqX-hI-DLT"/>
                             <constraint firstItem="r8V-3b-8mQ" firstAttribute="top" secondItem="kEO-VY-enl" secondAttribute="bottom" constant="171" id="Uqc-nB-H7f"/>
+                            <constraint firstItem="r8V-3b-8mQ" firstAttribute="top" secondItem="7X8-fh-uN3" secondAttribute="bottom" constant="23" id="Zrs-33-UXq"/>
                             <constraint firstItem="r8V-3b-8mQ" firstAttribute="leading" secondItem="xNj-c3-ERP" secondAttribute="leading" constant="149" id="bDf-ju-17s"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gWM-vv-Qbc" secondAttribute="trailing" constant="-20" id="clv-aQ-afz"/>
+                            <constraint firstItem="7X8-fh-uN3" firstAttribute="centerX" secondItem="gWM-vv-Qbc" secondAttribute="centerX" id="dBl-qR-VgX"/>
+                            <constraint firstItem="8we-Og-kTS" firstAttribute="top" secondItem="7X8-fh-uN3" secondAttribute="bottom" constant="23" id="hN0-xs-hOQ"/>
                             <constraint firstAttribute="trailing" secondItem="8we-Og-kTS" secondAttribute="trailing" constant="133" id="jlv-e3-17m"/>
+                            <constraint firstItem="EkP-4B-l1g" firstAttribute="top" secondItem="gWM-vv-Qbc" secondAttribute="bottom" id="jlz-Sz-EjC"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -83,18 +98,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erl-nw-Q24">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="L7C-iS-R2s">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erl-nw-Q24">
+                                <rect key="frame" x="265" y="71" width="206" height="52"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="164" y="61" width="272" height="94"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a42-7Y-XVt">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Music On"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a42-7Y-XVt">
+                                <rect key="frame" x="265" y="175" width="67" height="17"/>
+                                <state key="normal" title="Music On">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <variation key="heightClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="122" y="249" width="108" height="30"/>
                                 </variation>
@@ -102,9 +122,11 @@
                                     <action selector="musicToggleButtonHandler:" destination="Jwt-rK-ajZ" eventType="touchUpInside" id="5z3-Ge-MRN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsN-Xx-eGr">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="SFX On"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsN-Xx-eGr">
+                                <rect key="frame" x="404" y="175" width="67" height="17"/>
+                                <state key="normal" title="SFX On">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <variation key="heightClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="398" y="249" width="118" height="30"/>
                                 </variation>
@@ -121,13 +143,19 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="erl-nw-Q24"/>
-                                <exclude reference="a42-7Y-XVt"/>
-                                <exclude reference="GsN-Xx-eGr"/>
-                            </mask>
-                        </variation>
+                        <constraints>
+                            <constraint firstItem="L7C-iS-R2s" firstAttribute="top" secondItem="IUb-KF-3F1" secondAttribute="topMargin" id="27E-EV-b8F"/>
+                            <constraint firstItem="GsN-Xx-eGr" firstAttribute="top" secondItem="erl-nw-Q24" secondAttribute="bottom" constant="50" id="9dh-Qg-Szi"/>
+                            <constraint firstItem="P3d-my-Teb" firstAttribute="top" secondItem="L7C-iS-R2s" secondAttribute="bottom" id="9ll-Av-Jyg"/>
+                            <constraint firstItem="L7C-iS-R2s" firstAttribute="leading" secondItem="a42-7Y-XVt" secondAttribute="trailing" constant="-332" id="AMI-jt-mAn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="L7C-iS-R2s" secondAttribute="trailing" constant="-20" id="LXn-PX-Eyo"/>
+                            <constraint firstItem="L7C-iS-R2s" firstAttribute="leading" secondItem="IUb-KF-3F1" secondAttribute="leadingMargin" constant="-20" id="M5C-ba-Agc"/>
+                            <constraint firstItem="L7C-iS-R2s" firstAttribute="top" secondItem="erl-nw-Q24" secondAttribute="bottom" constant="-123" id="NBG-gM-jMi"/>
+                            <constraint firstItem="erl-nw-Q24" firstAttribute="centerX" secondItem="L7C-iS-R2s" secondAttribute="centerX" id="Wk7-5Q-gSP"/>
+                            <constraint firstItem="GsN-Xx-eGr" firstAttribute="leading" secondItem="L7C-iS-R2s" secondAttribute="trailing" constant="-325" id="XJ2-3j-B5E"/>
+                            <constraint firstItem="a42-7Y-XVt" firstAttribute="top" secondItem="erl-nw-Q24" secondAttribute="bottom" constant="52" id="Xxk-Sr-qBk"/>
+                            <constraint firstItem="GsN-Xx-eGr" firstAttribute="leading" secondItem="a42-7Y-XVt" secondAttribute="trailing" constant="79" id="uhz-AS-jFR"/>
+                        </constraints>
                         <variation key="heightClass=compact">
                             <mask key="subviews">
                                 <include reference="erl-nw-Q24"/>
@@ -143,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pie-Ij-7e3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213" y="-489"/>
+            <point key="canvasLocation" x="280" y="-423"/>
         </scene>
         <!--Level Selection View Controller-->
         <scene sceneID="2ik-q0-Lhl">
@@ -157,8 +185,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="5HE-iW-xwA">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="qi4-MX-wO3">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEd-Qw-N7c" userLabel="Mercury">
                                 <rect key="frame" x="7" y="182" width="48" height="48"/>
@@ -291,22 +319,25 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="w03-A4-RA0" firstAttribute="centerY" secondItem="aam-UD-gPe" secondAttribute="centerY" id="20v-HK-PZb"/>
+                            <constraint firstItem="qi4-MX-wO3" firstAttribute="top" secondItem="aam-UD-gPe" secondAttribute="topMargin" id="7Sm-YQ-M3q"/>
                             <constraint firstItem="wqm-R2-Ds8" firstAttribute="centerY" secondItem="aam-UD-gPe" secondAttribute="centerY" id="9hV-dA-NyG"/>
                             <constraint firstItem="f1O-P2-k4e" firstAttribute="top" secondItem="ye9-ca-SGA" secondAttribute="bottom" constant="-13" id="EJa-hC-YSC" userLabel="Jupiter.top = Jupiter.bottom + 3"/>
                             <constraint firstItem="qIf-qF-qpH" firstAttribute="centerY" secondItem="aam-UD-gPe" secondAttribute="centerY" id="GU7-0J-pZQ"/>
                             <constraint firstItem="AEd-Qw-N7c" firstAttribute="centerY" secondItem="aam-UD-gPe" secondAttribute="centerY" id="GdY-TW-pGT"/>
                             <constraint firstItem="RGp-WH-A1L" firstAttribute="top" secondItem="w03-A4-RA0" secondAttribute="bottom" constant="-14" id="ImC-jO-ahQ" userLabel="Saturn.top = Saturn.bottom + 3"/>
+                            <constraint firstItem="qi4-MX-wO3" firstAttribute="leading" secondItem="aam-UD-gPe" secondAttribute="leadingMargin" constant="-20" id="Iz4-Xa-Bp2"/>
                             <constraint firstItem="8R3-u4-UTm" firstAttribute="centerY" secondItem="aam-UD-gPe" secondAttribute="centerY" id="JYv-0Y-ej5"/>
                             <constraint firstItem="7MF-4v-ANL" firstAttribute="top" secondItem="NOW-Zt-vzm" secondAttribute="bottom" constant="3" id="LDv-SB-HpH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qi4-MX-wO3" secondAttribute="trailing" constant="-20" id="SPx-Mo-wnW"/>
                             <constraint firstItem="ye9-ca-SGA" firstAttribute="centerY" secondItem="aam-UD-gPe" secondAttribute="centerY" id="UEs-J5-aiG"/>
                             <constraint firstItem="WXu-uI-5X6" firstAttribute="centerY" secondItem="aam-UD-gPe" secondAttribute="centerY" id="YfI-xd-xgs"/>
                             <constraint firstItem="V3Y-9Y-PM5" firstAttribute="top" secondItem="8R3-u4-UTm" secondAttribute="bottom" constant="3" id="cBx-3E-8TZ"/>
+                            <constraint firstItem="e38-f1-nTV" firstAttribute="top" secondItem="qi4-MX-wO3" secondAttribute="bottom" id="cue-jG-YV9"/>
                             <constraint firstItem="NOW-Zt-vzm" firstAttribute="centerY" secondItem="aam-UD-gPe" secondAttribute="centerY" id="g4L-Qf-Wiy"/>
                             <constraint firstItem="U9I-6R-75X" firstAttribute="top" secondItem="WXu-uI-5X6" secondAttribute="bottom" constant="10" id="i84-iN-Fyv" userLabel="Mars.top = Mars.bottom + 3"/>
                             <constraint firstItem="YXI-r5-t9U" firstAttribute="top" secondItem="wqm-R2-Ds8" secondAttribute="bottom" constant="1" id="jyo-gc-jOO" userLabel="Uranus.top = Uranus.bottom + 3"/>
                             <constraint firstItem="ULl-kB-zbP" firstAttribute="top" secondItem="qIf-qF-qpH" secondAttribute="bottom" constant="2" id="pay-Ta-S4K" userLabel="Neptune.top = Neptune.bottom + 3"/>
                             <constraint firstItem="h6O-sD-XBV" firstAttribute="top" secondItem="AEd-Qw-N7c" secondAttribute="bottom" constant="10" id="s8l-JB-udD" userLabel="Mercury.top = Mercury.bottom + 3"/>
-                            <constraint firstItem="5HE-iW-xwA" firstAttribute="leading" secondItem="h6O-sD-XBV" secondAttribute="trailing" constant="-66" id="uqq-Rr-Lu5"/>
                         </constraints>
                     </view>
                 </viewController>
