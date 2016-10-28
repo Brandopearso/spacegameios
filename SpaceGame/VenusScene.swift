@@ -36,7 +36,6 @@ class VenusScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(button)
         
-        
         //set timer to bullet once it reaches view
         //var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(GameScene.spawnBullets), userInfo: nil, repeats: true)
         
@@ -92,7 +91,7 @@ class VenusScene: SKScene, SKPhysicsContactDelegate {
         
         enemy.removeFromParent()
         bullet.removeFromParent()
-        score+=1
+        score += 1
         
         scoreLabel.text = "\(score)"
     }

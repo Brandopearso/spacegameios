@@ -9,10 +9,10 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         let defaults = NSUserDefaults.standardUserDefaults()
         if let music = defaults.objectForKey("backgroundMusic") as? Bool {
@@ -39,5 +39,8 @@ class MenuViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    override func shouldAutorotate() -> Bool {
+        return false;
+    }
 
 }

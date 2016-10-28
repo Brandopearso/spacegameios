@@ -12,8 +12,9 @@ import UIKit
 class LevelSelectionViewController : UIViewController {
     
     
-    override func viewDidLoad() {
-
-        
+    override func viewDidLoad()
+    {
+        let value = UIInterfaceOrientation.LandscapeLeft.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
     }
 }

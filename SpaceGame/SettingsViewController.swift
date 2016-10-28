@@ -66,6 +66,10 @@ class SettingsViewController: UIViewController {
             //defaults.setBool(true, forKey: "sfx")
         }
     }
+    
+    override func shouldAutorotate() -> Bool {
+        return false;
+    }
 
     /*
     // MARK: - Navigation
