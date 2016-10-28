@@ -106,7 +106,7 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
     
     func spawnEnemy() {
         
-        let enemy = SKSpriteNode(imageNamed: "squid_1.png")
+        let enemy = SKSpriteNode(imageNamed: "squid_11.png")
         var actions = Array<SKAction>();
         let minValue = self.size.height / 6
         let maxValue = self.size.height
@@ -115,14 +115,14 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         let spawnPoint = UInt32(maxValue - minValue)
         enemy.position = CGPoint(x: self.size.width, y: CGFloat(arc4random_uniform(spawnPoint)))
         
-        let TextureAtlas = SKTextureAtlas(named: "squid")
+        let TextureAtlas = SKTextureAtlas(named: "squid1")
         
         let animation = SKAction.animateWithTextures([
             
-            TextureAtlas.textureNamed("squid_1.png"),
-            TextureAtlas.textureNamed("squid_2.png"),
-            TextureAtlas.textureNamed("squid_3.png"),
-            TextureAtlas.textureNamed("squid_4.png")
+            TextureAtlas.textureNamed("squid_11.png"),
+            TextureAtlas.textureNamed("squid_22.png"),
+            TextureAtlas.textureNamed("squid_33.png"),
+            TextureAtlas.textureNamed("squid_44.png")
             ], timePerFrame:0.25)
         
         //create action object to give to bullet. give +30 to height so that bullet goes off screen
@@ -179,20 +179,15 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         //???
         bullet.physicsBody?.dynamic = false
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let fx = defaults.boolForKey("sfx")
-        if (fx == true) {
+        let laserSound = NSBundle.mainBundle().URLForResource("laser", withExtension: "mp3")!
+        do {
+            self.audioLaser = try AVAudioPlayer(contentsOfURL: laserSound)
+            guard let audioLaser = audioLaser else { return }
+            audioLaser.prepareToPlay()
+            audioLaser.play()
+        } catch let error as NSError {
             
-            let laserSound = NSBundle.mainBundle().URLForResource("laser", withExtension: "mp3")!
-            do {
-                self.audioLaser = try AVAudioPlayer(contentsOfURL: laserSound)
-                guard let audioLaser = audioLaser else { return }
-                audioLaser.prepareToPlay()
-                audioLaser.play()
-            } catch let error as NSError {
-                
-                print(error.description)
-            }
+            print(error.description)
         }
 
         

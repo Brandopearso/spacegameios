@@ -41,7 +41,7 @@
 		01B3BC2E1DC0726F007B4C4D /* NeptuneScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01B3BC2B1DC0726F007B4C4D /* NeptuneScene.sks */; };
 		01B3BC2F1DC0726F007B4C4D /* NeptuneScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B3BC2C1DC0726F007B4C4D /* NeptuneScene.swift */; };
 		01B3BC301DC0726F007B4C4D /* NeptuneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B3BC2D1DC0726F007B4C4D /* NeptuneViewController.swift */; };
-		01DAA2BF1DBB5D0300D341C0 /* squid.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 01DAA2BE1DBB5D0300D341C0 /* squid.atlas */; };
+		01DAA2BF1DBB5D0300D341C0 /* squid1.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 01DAA2BE1DBB5D0300D341C0 /* squid1.atlas */; };
 		F921A9DF1DBBDD4500439426 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F921A9DE1DBBDD4500439426 /* SettingsViewController.swift */; };
 		F9AC69C01DC0016E00D1EC7C /* Night-Winds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F9AC69BF1DC0016E00D1EC7C /* Night-Winds.mp3 */; };
 		F9AC69C21DC00AEB00D1EC7C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC69C11DC00AEB00D1EC7C /* MenuViewController.swift */; };
@@ -105,7 +105,7 @@
 		01B3BC2B1DC0726F007B4C4D /* NeptuneScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = NeptuneScene.sks; sourceTree = "<group>"; };
 		01B3BC2C1DC0726F007B4C4D /* NeptuneScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeptuneScene.swift; sourceTree = "<group>"; };
 		01B3BC2D1DC0726F007B4C4D /* NeptuneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeptuneViewController.swift; sourceTree = "<group>"; };
-		01DAA2BE1DBB5D0300D341C0 /* squid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = squid.atlas; sourceTree = "<group>"; };
+		01DAA2BE1DBB5D0300D341C0 /* squid1.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = squid1.atlas; sourceTree = "<group>"; };
 		F921A9DE1DBBDD4500439426 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F9AC69BF1DC0016E00D1EC7C /* Night-Winds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Night-Winds.mp3"; path = "Assets.xcassets/Night-Winds.mp3"; sourceTree = "<group>"; };
 		F9AC69C11DC00AEB00D1EC7C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 				01033B8B1DBDB0650059F8E5 /* VenusViewController.swift */,
 				01033B8D1DBDB0CA0059F8E5 /* VenusScene.swift */,
 				01033B671DBC833E0059F8E5 /* LevelSelectionViewController.swift */,
-				01DAA2BE1DBB5D0300D341C0 /* squid.atlas */,
+				01DAA2BE1DBB5D0300D341C0 /* squid1.atlas */,
 				0183846B1D867A5200BAD87A /* Assets.xcassets */,
 				0183846D1D867A5200BAD87A /* LaunchScreen.storyboard */,
 				0158CE521DBB50EB00E8E90C /* sprites */,
@@ -329,7 +329,7 @@
 				01B3BC281DC0710C007B4C4D /* UranusScene.sks in Resources */,
 				01B3BC161DC06D0D007B4C4D /* MarsScene.sks in Resources */,
 				0188C1121DC2C0A000484440 /* space_no_planets.png in Resources */,
-				01DAA2BF1DBB5D0300D341C0 /* squid.atlas in Resources */,
+				01DAA2BF1DBB5D0300D341C0 /* squid1.atlas in Resources */,
 				F9AC69C01DC0016E00D1EC7C /* Night-Winds.mp3 in Resources */,
 				01B3BC221DC06F67007B4C4D /* SaturnScene.sks in Resources */,
 				0158CE531DBB50EC00E8E90C /* sprites in Resources */,

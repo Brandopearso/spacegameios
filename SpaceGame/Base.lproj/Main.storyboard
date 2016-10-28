@@ -99,7 +99,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="L7C-iS-R2s">
-                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                                <rect key="frame" x="1" y="0.0" width="736" height="414"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erl-nw-Q24">
                                 <rect key="frame" x="265" y="71" width="206" height="52"/>
@@ -111,7 +111,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a42-7Y-XVt">
-                                <rect key="frame" x="265" y="175" width="67" height="17"/>
+                                <rect key="frame" x="166" y="175" width="67" height="17"/>
                                 <state key="normal" title="Music On">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -123,7 +123,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsN-Xx-eGr">
-                                <rect key="frame" x="404" y="175" width="67" height="17"/>
+                                <rect key="frame" x="517" y="175" width="67" height="17"/>
                                 <state key="normal" title="SFX On">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -135,7 +135,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdE-fS-PUY">
-                                <rect key="frame" x="-9" y="0.0" width="116" height="38"/>
+                                <rect key="frame" x="20" y="20" width="116" height="38"/>
                                 <state key="normal" title="Back to Menu"/>
                                 <connections>
                                     <segue destination="eWh-dK-bl2" kind="show" id="wLm-Ke-395"/>
@@ -144,17 +144,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="L7C-iS-R2s" firstAttribute="top" secondItem="IUb-KF-3F1" secondAttribute="topMargin" id="27E-EV-b8F"/>
-                            <constraint firstItem="GsN-Xx-eGr" firstAttribute="top" secondItem="erl-nw-Q24" secondAttribute="bottom" constant="50" id="9dh-Qg-Szi"/>
-                            <constraint firstItem="P3d-my-Teb" firstAttribute="top" secondItem="L7C-iS-R2s" secondAttribute="bottom" id="9ll-Av-Jyg"/>
-                            <constraint firstItem="L7C-iS-R2s" firstAttribute="leading" secondItem="a42-7Y-XVt" secondAttribute="trailing" constant="-332" id="AMI-jt-mAn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="L7C-iS-R2s" secondAttribute="trailing" constant="-20" id="LXn-PX-Eyo"/>
-                            <constraint firstItem="L7C-iS-R2s" firstAttribute="leading" secondItem="IUb-KF-3F1" secondAttribute="leadingMargin" constant="-20" id="M5C-ba-Agc"/>
-                            <constraint firstItem="L7C-iS-R2s" firstAttribute="top" secondItem="erl-nw-Q24" secondAttribute="bottom" constant="-123" id="NBG-gM-jMi"/>
-                            <constraint firstItem="erl-nw-Q24" firstAttribute="centerX" secondItem="L7C-iS-R2s" secondAttribute="centerX" id="Wk7-5Q-gSP"/>
-                            <constraint firstItem="GsN-Xx-eGr" firstAttribute="leading" secondItem="L7C-iS-R2s" secondAttribute="trailing" constant="-325" id="XJ2-3j-B5E"/>
-                            <constraint firstItem="a42-7Y-XVt" firstAttribute="top" secondItem="erl-nw-Q24" secondAttribute="bottom" constant="52" id="Xxk-Sr-qBk"/>
-                            <constraint firstItem="GsN-Xx-eGr" firstAttribute="leading" secondItem="a42-7Y-XVt" secondAttribute="trailing" constant="79" id="uhz-AS-jFR"/>
+                            <constraint firstItem="GsN-Xx-eGr" firstAttribute="top" secondItem="erl-nw-Q24" secondAttribute="bottom" constant="52" id="3p5-ob-3ka"/>
+                            <constraint firstItem="L7C-iS-R2s" firstAttribute="top" secondItem="IUb-KF-3F1" secondAttribute="topMargin" id="DiW-qq-vnf"/>
+                            <constraint firstItem="L7C-iS-R2s" firstAttribute="leading" secondItem="IUb-KF-3F1" secondAttribute="leadingMargin" constant="-19" id="GjS-Mc-llY"/>
+                            <constraint firstItem="L7C-iS-R2s" firstAttribute="leading" secondItem="a42-7Y-XVt" secondAttribute="trailing" constant="-232" id="H8t-Qj-jW2"/>
+                            <constraint firstItem="GsN-Xx-eGr" firstAttribute="leading" secondItem="L7C-iS-R2s" secondAttribute="trailing" constant="-220" id="TGR-Os-vhE"/>
+                            <constraint firstItem="L7C-iS-R2s" firstAttribute="top" secondItem="erl-nw-Q24" secondAttribute="bottom" constant="-123" id="UJG-N6-Iyb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="L7C-iS-R2s" secondAttribute="trailing" constant="-21" id="YAk-cH-DFn"/>
+                            <constraint firstItem="P3d-my-Teb" firstAttribute="top" secondItem="L7C-iS-R2s" secondAttribute="bottom" id="if8-gW-slO"/>
+                            <constraint firstItem="GsN-Xx-eGr" firstAttribute="leading" secondItem="a42-7Y-XVt" secondAttribute="trailing" constant="284" id="igp-oE-MTy"/>
+                            <constraint firstItem="erl-nw-Q24" firstAttribute="centerX" secondItem="L7C-iS-R2s" secondAttribute="centerX" constant="-1" id="ujB-Zg-AIe"/>
+                            <constraint firstItem="a42-7Y-XVt" firstAttribute="top" secondItem="erl-nw-Q24" secondAttribute="bottom" constant="52" id="vk8-dv-8lU"/>
                         </constraints>
                         <variation key="heightClass=compact">
                             <mask key="subviews">
