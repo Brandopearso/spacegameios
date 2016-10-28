@@ -19,6 +19,8 @@ class JupiterScene: SKScene, SKPhysicsContactDelegate {
     var audioPlayer: AVAudioPlayer?
     var audioLaser: AVAudioPlayer?
     
+    var background = SKSpriteNode(imageNamed: "space_no_planets.png")
+    
     override func didMoveToView(view: SKView) {
         
         physicsWorld.contactDelegate = self
@@ -51,7 +53,10 @@ class JupiterScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
         scoreLabel.backgroundColor = UIColor.blackColor()
         scoreLabel.textColor = UIColor.whiteColor()
-        
+        background.zPosition = -100
+        background.size = self.frame.size
+        background.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        addChild(background)
         self.view?.addSubview(scoreLabel)
         
         // Start music

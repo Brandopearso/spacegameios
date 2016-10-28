@@ -26,6 +26,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var audioPlayer: AVAudioPlayer?
     var audioLaser: AVAudioPlayer?
     
+    var background = SKSpriteNode(imageNamed: "space_no_planets.png")
+    
     override func didMoveToView(view: SKView) {
         
         physicsWorld.contactDelegate = self
@@ -60,6 +62,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.textColor = UIColor.whiteColor()
         
         self.view?.addSubview(scoreLabel)
+        background.zPosition = -100
+        background.size = self.frame.size
+        background.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+
+        addChild(background)
 
         // Start music
         let defaults = NSUserDefaults.standardUserDefaults()
