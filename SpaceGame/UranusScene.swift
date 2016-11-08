@@ -42,7 +42,7 @@ class UranusScene: SKScene, SKPhysicsContactDelegate {
         self.view?.addSubview(score)
         
         // enemy timer
-        _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(GameScene.spawnEnemy), userInfo: nil, repeats: true)
+        _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(UranusScene.spawnEnemy), userInfo: nil, repeats: true)
         
     }
     

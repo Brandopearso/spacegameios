@@ -9,6 +9,14 @@
 import UIKit
 import SpriteKit
 
+struct physicsCategory {
+    
+    static let enemy: UInt32 = 1
+    static let bullet: UInt32 = 2
+    static let player: UInt32 = 4
+    static let powerup: UInt32 = 8
+}
+
 class MercuryViewController: UIViewController {
     
     override func viewDidLoad() {
