@@ -190,11 +190,11 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEd-Qw-N7c" userLabel="Mercury">
                                 <rect key="frame" x="7" y="182" width="48" height="48"/>
-                                <state key="normal" image="sprites/Mercury_.png" backgroundImage="Mercury_.png">
+                                <state key="normal" backgroundImage="sprites/Mercury_.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" id="bHo-bc-aac"/>
+                                    <segue destination="vKK-35-kUT" kind="show" id="9ic-yp-v4I"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXu-uI-5X6" userLabel="Mars">
@@ -345,6 +345,24 @@
             </objects>
             <point key="canvasLocation" x="367" y="352"/>
         </scene>
+        <!--Mercury View Controller-->
+        <scene sceneID="jdF-YL-zZL">
+            <objects>
+                <viewController id="vKK-35-kUT" customClass="MercuryViewController" customModule="SpaceGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7GJ-NA-2qf"/>
+                        <viewControllerLayoutGuide type="bottom" id="yuw-R5-hVz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kuw-q4-Jzk" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Frt-sP-LLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="492" y="881"/>
+        </scene>
         <!--Neptune View Controller-->
         <scene sceneID="g4d-Kd-Yio">
             <objects>
@@ -380,24 +398,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLW-dM-stq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1389" y="237"/>
-        </scene>
-        <!--Game View Controller-->
-        <scene sceneID="tXr-a1-R10">
-            <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="SpaceGame" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8aa-yV-Osq"/>
-                        <viewControllerLayoutGuide type="bottom" id="qHh-Mt-9TT"/>
-                    </layoutGuides>
-                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1103" y="-18"/>
         </scene>
         <!--Saturn View Controller-->
         <scene sceneID="NF3-fP-cqU">
@@ -491,7 +491,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Mercury_.png" width="48" height="48"/>
         <image name="space_no_planets.png" width="1024" height="512"/>
         <image name="sprites/Earth_.png" width="64" height="64"/>
         <image name="sprites/Jupiter_.png" width="48" height="48"/>

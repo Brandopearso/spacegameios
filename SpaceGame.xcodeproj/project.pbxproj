@@ -14,9 +14,6 @@
 		01033B921DBDB1B70059F8E5 /* EarthScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01033B911DBDB1B70059F8E5 /* EarthScene.swift */; };
 		0158CE531DBB50EC00E8E90C /* sprites in Resources */ = {isa = PBXBuildFile; fileRef = 0158CE521DBB50EB00E8E90C /* sprites */; };
 		018384611D867A5200BAD87A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384601D867A5200BAD87A /* AppDelegate.swift */; };
-		018384631D867A5200BAD87A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 018384621D867A5200BAD87A /* GameScene.sks */; };
-		018384651D867A5200BAD87A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384641D867A5200BAD87A /* GameScene.swift */; };
-		018384671D867A5200BAD87A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384661D867A5200BAD87A /* GameViewController.swift */; };
 		0183846A1D867A5200BAD87A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 018384681D867A5200BAD87A /* Main.storyboard */; };
 		0183846C1D867A5200BAD87A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0183846B1D867A5200BAD87A /* Assets.xcassets */; };
 		0183846F1D867A5200BAD87A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0183846D1D867A5200BAD87A /* LaunchScreen.storyboard */; };
@@ -41,7 +38,20 @@
 		01B3BC2E1DC0726F007B4C4D /* NeptuneScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01B3BC2B1DC0726F007B4C4D /* NeptuneScene.sks */; };
 		01B3BC2F1DC0726F007B4C4D /* NeptuneScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B3BC2C1DC0726F007B4C4D /* NeptuneScene.swift */; };
 		01B3BC301DC0726F007B4C4D /* NeptuneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B3BC2D1DC0726F007B4C4D /* NeptuneViewController.swift */; };
-		01DAA2BF1DBB5D0300D341C0 /* squid1.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 01DAA2BE1DBB5D0300D341C0 /* squid1.atlas */; };
+		01C8DA991DCEB70300869D18 /* bee_red.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 01C8DA911DCEB70300869D18 /* bee_red.atlas */; };
+		01C8DA9A1DCEB70300869D18 /* cyclops_blue.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 01C8DA921DCEB70300869D18 /* cyclops_blue.atlas */; };
+		01C8DA9B1DCEB70300869D18 /* cyclops_red.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 01C8DA931DCEB70300869D18 /* cyclops_red.atlas */; };
+		01C8DA9C1DCEB70300869D18 /* spider_blue.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 01C8DA941DCEB70300869D18 /* spider_blue.atlas */; };
+		01C8DA9D1DCEB70300869D18 /* spider_red.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 01C8DA951DCEB70300869D18 /* spider_red.atlas */; };
+		01C8DA9E1DCEB70300869D18 /* squid_blue.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 01C8DA961DCEB70300869D18 /* squid_blue.atlas */; };
+		01C8DA9F1DCEB70300869D18 /* squid_red.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 01C8DA971DCEB70300869D18 /* squid_red.atlas */; };
+		01C8DAA11DCEBC0700869D18 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8DAA01DCEBC0700869D18 /* Enemy.swift */; };
+		01C8DAA51DCED21300869D18 /* bee_blue.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 01C8DAA41DCED21300869D18 /* bee_blue.atlas */; };
+		01C8DAA71DCEE28100869D18 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8DAA61DCEE28000869D18 /* Player.swift */; };
+		01C8DAA91DCEE4D500869D18 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8DAA81DCEE4D500869D18 /* Level.swift */; };
+		01E9DA911DD1BEE700A0DCAC /* MercuryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9DA901DD1BEE700A0DCAC /* MercuryViewController.swift */; };
+		01E9DA941DD1BEF200A0DCAC /* MercuryScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01E9DA921DD1BEF200A0DCAC /* MercuryScene.sks */; };
+		01E9DA951DD1BEF200A0DCAC /* MercuryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9DA931DD1BEF200A0DCAC /* MercuryScene.swift */; };
 		F921A9DF1DBBDD4500439426 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F921A9DE1DBBDD4500439426 /* SettingsViewController.swift */; };
 		F9AC69C01DC0016E00D1EC7C /* Night-Winds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F9AC69BF1DC0016E00D1EC7C /* Night-Winds.mp3 */; };
 		F9AC69C21DC00AEB00D1EC7C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC69C11DC00AEB00D1EC7C /* MenuViewController.swift */; };
@@ -73,9 +83,6 @@
 		0158CE521DBB50EB00E8E90C /* sprites */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sprites; sourceTree = "<group>"; };
 		0183845D1D867A5200BAD87A /* SpaceGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		018384601D867A5200BAD87A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		018384621D867A5200BAD87A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		018384641D867A5200BAD87A /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		018384661D867A5200BAD87A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		018384691D867A5200BAD87A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0183846B1D867A5200BAD87A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0183846E1D867A5200BAD87A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,7 +112,20 @@
 		01B3BC2B1DC0726F007B4C4D /* NeptuneScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = NeptuneScene.sks; sourceTree = "<group>"; };
 		01B3BC2C1DC0726F007B4C4D /* NeptuneScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeptuneScene.swift; sourceTree = "<group>"; };
 		01B3BC2D1DC0726F007B4C4D /* NeptuneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeptuneViewController.swift; sourceTree = "<group>"; };
-		01DAA2BE1DBB5D0300D341C0 /* squid1.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = squid1.atlas; sourceTree = "<group>"; };
+		01C8DA911DCEB70300869D18 /* bee_red.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bee_red.atlas; sourceTree = "<group>"; };
+		01C8DA921DCEB70300869D18 /* cyclops_blue.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = cyclops_blue.atlas; sourceTree = "<group>"; };
+		01C8DA931DCEB70300869D18 /* cyclops_red.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = cyclops_red.atlas; sourceTree = "<group>"; };
+		01C8DA941DCEB70300869D18 /* spider_blue.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = spider_blue.atlas; sourceTree = "<group>"; };
+		01C8DA951DCEB70300869D18 /* spider_red.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = spider_red.atlas; sourceTree = "<group>"; };
+		01C8DA961DCEB70300869D18 /* squid_blue.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = squid_blue.atlas; sourceTree = "<group>"; };
+		01C8DA971DCEB70300869D18 /* squid_red.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = squid_red.atlas; sourceTree = "<group>"; };
+		01C8DAA01DCEBC0700869D18 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		01C8DAA41DCED21300869D18 /* bee_blue.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bee_blue.atlas; sourceTree = "<group>"; };
+		01C8DAA61DCEE28000869D18 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		01C8DAA81DCEE4D500869D18 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		01E9DA901DD1BEE700A0DCAC /* MercuryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercuryViewController.swift; sourceTree = "<group>"; };
+		01E9DA921DD1BEF200A0DCAC /* MercuryScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MercuryScene.sks; sourceTree = "<group>"; };
+		01E9DA931DD1BEF200A0DCAC /* MercuryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercuryScene.swift; sourceTree = "<group>"; };
 		F921A9DE1DBBDD4500439426 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F9AC69BF1DC0016E00D1EC7C /* Night-Winds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Night-Winds.mp3"; path = "Assets.xcassets/Night-Winds.mp3"; sourceTree = "<group>"; };
 		F9AC69C11DC00AEB00D1EC7C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -159,15 +179,26 @@
 		0183845F1D867A5200BAD87A /* SpaceGame */ = {
 			isa = PBXGroup;
 			children = (
+				01C8DAA41DCED21300869D18 /* bee_blue.atlas */,
+				01C8DA911DCEB70300869D18 /* bee_red.atlas */,
+				01C8DA921DCEB70300869D18 /* cyclops_blue.atlas */,
+				01C8DA931DCEB70300869D18 /* cyclops_red.atlas */,
+				01C8DA941DCEB70300869D18 /* spider_blue.atlas */,
+				01C8DA951DCEB70300869D18 /* spider_red.atlas */,
+				01C8DA961DCEB70300869D18 /* squid_blue.atlas */,
+				01C8DA971DCEB70300869D18 /* squid_red.atlas */,
 				F9AC69BF1DC0016E00D1EC7C /* Night-Winds.mp3 */,
 				018384601D867A5200BAD87A /* AppDelegate.swift */,
-				018384621D867A5200BAD87A /* GameScene.sks */,
 				01B3BC0F1DC06795007B4C4D /* EarthScene.sks */,
+				01C8DAA01DCEBC0700869D18 /* Enemy.swift */,
 				01B3BC111DC06BA2007B4C4D /* VenusScene.sks */,
-				018384641D867A5200BAD87A /* GameScene.swift */,
-				018384661D867A5200BAD87A /* GameViewController.swift */,
+				01E9DA921DD1BEF200A0DCAC /* MercuryScene.sks */,
+				01E9DA931DD1BEF200A0DCAC /* MercuryScene.swift */,
+				01E9DA901DD1BEE700A0DCAC /* MercuryViewController.swift */,
 				01B3BC131DC06D0D007B4C4D /* MarsScene.sks */,
 				01B3BC141DC06D0D007B4C4D /* MarsScene.swift */,
+				01C8DAA81DCEE4D500869D18 /* Level.swift */,
+				01C8DAA61DCEE28000869D18 /* Player.swift */,
 				01B3BC191DC06E69007B4C4D /* JupiterScene.sks */,
 				01B3BC1A1DC06E69007B4C4D /* JupiterScene.swift */,
 				0188C10F1DC0923300484440 /* laser.mp3 */,
@@ -189,7 +220,6 @@
 				01033B8B1DBDB0650059F8E5 /* VenusViewController.swift */,
 				01033B8D1DBDB0CA0059F8E5 /* VenusScene.swift */,
 				01033B671DBC833E0059F8E5 /* LevelSelectionViewController.swift */,
-				01DAA2BE1DBB5D0300D341C0 /* squid1.atlas */,
 				0183846B1D867A5200BAD87A /* Assets.xcassets */,
 				0183846D1D867A5200BAD87A /* LaunchScreen.storyboard */,
 				0158CE521DBB50EB00E8E90C /* sprites */,
@@ -323,19 +353,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				018384631D867A5200BAD87A /* GameScene.sks in Resources */,
+				01C8DA9F1DCEB70300869D18 /* squid_red.atlas in Resources */,
 				0183846F1D867A5200BAD87A /* LaunchScreen.storyboard in Resources */,
+				01C8DA9C1DCEB70300869D18 /* spider_blue.atlas in Resources */,
 				01B3BC2E1DC0726F007B4C4D /* NeptuneScene.sks in Resources */,
 				01B3BC281DC0710C007B4C4D /* UranusScene.sks in Resources */,
+				01C8DA9D1DCEB70300869D18 /* spider_red.atlas in Resources */,
 				01B3BC161DC06D0D007B4C4D /* MarsScene.sks in Resources */,
 				0188C1121DC2C0A000484440 /* space_no_planets.png in Resources */,
-				01DAA2BF1DBB5D0300D341C0 /* squid1.atlas in Resources */,
+				01C8DA991DCEB70300869D18 /* bee_red.atlas in Resources */,
 				F9AC69C01DC0016E00D1EC7C /* Night-Winds.mp3 in Resources */,
+				01C8DA9E1DCEB70300869D18 /* squid_blue.atlas in Resources */,
 				01B3BC221DC06F67007B4C4D /* SaturnScene.sks in Resources */,
+				01E9DA941DD1BEF200A0DCAC /* MercuryScene.sks in Resources */,
 				0158CE531DBB50EC00E8E90C /* sprites in Resources */,
 				0183846C1D867A5200BAD87A /* Assets.xcassets in Resources */,
+				01C8DA9B1DCEB70300869D18 /* cyclops_red.atlas in Resources */,
 				01B3BC121DC06BA3007B4C4D /* VenusScene.sks in Resources */,
 				01B3BC1C1DC06E69007B4C4D /* JupiterScene.sks in Resources */,
+				01C8DA9A1DCEB70300869D18 /* cyclops_blue.atlas in Resources */,
+				01C8DAA51DCED21300869D18 /* bee_blue.atlas in Resources */,
 				0183846A1D867A5200BAD87A /* Main.storyboard in Resources */,
 				0188C1101DC0923300484440 /* laser.mp3 in Resources */,
 				01B3BC101DC06795007B4C4D /* EarthScene.sks in Resources */,
@@ -363,20 +400,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				018384651D867A5200BAD87A /* GameScene.swift in Sources */,
+				01E9DA951DD1BEF200A0DCAC /* MercuryScene.swift in Sources */,
+				01C8DAA71DCEE28100869D18 /* Player.swift in Sources */,
 				F9AC69C21DC00AEB00D1EC7C /* MenuViewController.swift in Sources */,
 				01B3BC2A1DC0710C007B4C4D /* UranusViewController.swift in Sources */,
+				01E9DA911DD1BEE700A0DCAC /* MercuryViewController.swift in Sources */,
 				01B3BC231DC06F67007B4C4D /* SaturnScene.swift in Sources */,
 				01B3BC171DC06D0D007B4C4D /* MarsScene.swift in Sources */,
 				01B3BC181DC06D0D007B4C4D /* MarsViewController.swift in Sources */,
 				01B3BC1E1DC06E69007B4C4D /* JupiterViewController.swift in Sources */,
-				018384671D867A5200BAD87A /* GameViewController.swift in Sources */,
+				01C8DAA91DCEE4D500869D18 /* Level.swift in Sources */,
 				01033B8E1DBDB0CA0059F8E5 /* VenusScene.swift in Sources */,
 				018384611D867A5200BAD87A /* AppDelegate.swift in Sources */,
 				01B3BC291DC0710C007B4C4D /* UranusScene.swift in Sources */,
 				01B3BC241DC06F67007B4C4D /* SaturnViewController.swift in Sources */,
 				01B3BC1D1DC06E69007B4C4D /* JupiterScene.swift in Sources */,
 				01B3BC301DC0726F007B4C4D /* NeptuneViewController.swift in Sources */,
+				01C8DAA11DCEBC0700869D18 /* Enemy.swift in Sources */,
 				01033B921DBDB1B70059F8E5 /* EarthScene.swift in Sources */,
 				F921A9DF1DBBDD4500439426 /* SettingsViewController.swift in Sources */,
 				01033B8C1DBDB0650059F8E5 /* VenusViewController.swift in Sources */,

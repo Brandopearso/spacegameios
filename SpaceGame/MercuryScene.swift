@@ -9,7 +9,7 @@
 import SpriteKit
 import AVFoundation
 
-class SaturnScene: SKScene, SKPhysicsContactDelegate {
+class MercuryScene: SKScene, SKPhysicsContactDelegate {
     
     let level = Level()
     var enemylist = [SKNode]()
@@ -85,6 +85,7 @@ class SaturnScene: SKScene, SKPhysicsContactDelegate {
         if((firstBody.categoryBitMask == physicsCategory.bullet) && (secondBody.categoryBitMask == physicsCategory.enemy)){
             
             let enemy  = secondBody.node
+            
             if enemylist.contains(enemy!) {
                 level.PlayerCollisionWithBullet(firstBody.node as! SKSpriteNode, bullet: secondBody.node as! SKSpriteNode)
                 
@@ -137,16 +138,7 @@ class SaturnScene: SKScene, SKPhysicsContactDelegate {
     
     func spawnEnemy() {
         
-        let random_num = arc4random_uniform(10)
-        var enemy:Enemy
-        if random_num % 2 == 0 {
-            
-            enemy = Enemy(type: "cyclops_red", frames: 0.25, speed:1.6)
-        }
-        else {
-            
-            enemy = Enemy(type: "spider_blue", frames: 0.25, speed:2.0)
-        }
+        var enemy:Enemy = Enemy(type: "squid_blue", frames: 0.25, speed:3.0)
         let minValue = self.size.height / 6
         let maxValue = self.size.width
         let spawnPoint = UInt32(maxValue - minValue)
