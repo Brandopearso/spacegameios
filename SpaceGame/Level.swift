@@ -19,6 +19,7 @@ class Level {
     var audioPlayer: AVAudioPlayer?
     var audioLaser: AVAudioPlayer?
     var background = SKSpriteNode(imageNamed: "space_no_planets.png")
+    var enemylist = [Enemy]()
 
     init() {
         

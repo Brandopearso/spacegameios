@@ -28,31 +28,31 @@ class Enemy {
         switch type {
             
             case "spider_blue":
-                self.health = 1
+                self.health = 2
                 self.node = spawn()
             case "bee_blue":
-                self.health = 1
+                self.health = 2
                 self.node = spawn()
             case "squid_blue":
-                self.health = 1
+                self.health = 2
                 self.node = spawn()
             case "cyclops_blue":
-                self.health = 1
+                self.health = 2
                 self.node = spawn()
             case "spider_red":
-                self.health = 2
+                self.health = 3
                 self.node = spawn()
                 self.hasBullets = true
             case "bee_red":
-                self.health = 2
+                self.health = 3
                 self.node = spawn()
                 self.hasBullets = true
             case "squid_red":
-                self.health = 2
+                self.health = 3
                 self.node = spawn()
                 self.hasBullets = true
             case "cyclops_red":
-                self.health = 2
+                self.health = 3
                 self.node = spawn()
                 self.hasBullets = true
             default:

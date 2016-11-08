@@ -9,11 +9,9 @@
 import SpriteKit
 import AVFoundation
 
-
 class JupiterScene: SKScene, SKPhysicsContactDelegate {
     
     let level = Level()
-    var enemylist = [SKNode]()
     var collisionDelegate: DeathSceneDelegate?
     
     override func didMoveToView(view: SKView) {
@@ -76,19 +74,22 @@ class JupiterScene: SKScene, SKPhysicsContactDelegate {
         if ((firstBody.categoryBitMask == physicsCategory.enemy) && (secondBody.categoryBitMask == physicsCategory.bullet)) {
             
             let enemy  = firstBody.node
-            if enemylist.contains(enemy!) {
+            
+            for (i, enemy_i) in level.enemylist.enumerate() {
                 
-                level.PlayerCollisionWithBullet(firstBody.node as! SKSpriteNode, bullet: secondBody.node as! SKSpriteNode)
-                
-                let enemy  = firstBody.node
-                let pos:CGPoint = (enemy?.position)!
-                spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
-                
-            }
-            else {
-                
-                enemylist.append(enemy!)
-                secondBody.node?.removeFromParent()
+                if (enemy_i.node.isEqualToNode(enemy!)) {
+                    
+                    enemy_i.health = enemy_i.health - 1
+                    
+                    if (enemy_i.health == 0) {
+                        
+                        level.PlayerCollisionWithBullet(firstBody.node as! SKSpriteNode, bullet: secondBody.node as! SKSpriteNode)
+                        let enemy  = firstBody.node
+                        let pos:CGPoint = (enemy?.position)!
+                        spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
+                        level.enemylist.removeAtIndex(i)
+                    }
+                }
             }
         }
         
@@ -105,16 +106,22 @@ class JupiterScene: SKScene, SKPhysicsContactDelegate {
         if((firstBody.categoryBitMask == physicsCategory.bullet) && (secondBody.categoryBitMask == physicsCategory.enemy)){
             
             let enemy  = secondBody.node
-            if enemylist.contains(enemy!) {
-                level.PlayerCollisionWithBullet(firstBody.node as! SKSpriteNode, bullet: secondBody.node as! SKSpriteNode)
+            
+            for (i, enemy_i) in level.enemylist.enumerate() {
                 
-                let enemy  = secondBody.node
-                let pos:CGPoint = (enemy?.position)!
-                spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
-            }
-            else {
-                firstBody.node?.removeFromParent()
-                enemylist.append(enemy!)
+                if (enemy_i.node.isEqualToNode(enemy!)) {
+                    
+                    enemy_i.health = enemy_i.health - 1
+                    
+                    if (enemy_i.health == 0) {
+                        
+                        level.PlayerCollisionWithBullet(secondBody.node as! SKSpriteNode, bullet: firstBody.node as! SKSpriteNode)
+                        let enemy  = firstBody.node
+                        let pos:CGPoint = (enemy?.position)!
+                        spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
+                        level.enemylist.removeAtIndex(i)
+                    }
+                }
             }
         }
     }
@@ -176,6 +183,7 @@ class JupiterScene: SKScene, SKPhysicsContactDelegate {
         enemy.height = self.size.height
         enemy.width = self.size.width
         
+        level.enemylist.append(enemy)
         self.addChild(enemy.node)
     }
     
