@@ -39,6 +39,11 @@ class Level {
         self.scoreLabel.text = "\(self.score)"
     }
     
+    func PlayerCollisionWithEnemy(player: SKSpriteNode, enemy: SKSpriteNode) {
+        
+        player.removeFromParent()
+    }
+    
     func PlayerCollisionWithPowerup(player: SKSpriteNode, powerup: SKSpriteNode) {
         
         powerup.removeFromParent()

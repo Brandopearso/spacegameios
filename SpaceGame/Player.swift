@@ -67,7 +67,7 @@ class Player {
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.categoryBitMask = physicsCategory.player
         player.physicsBody?.collisionBitMask = 0
-        player.physicsBody?.contactTestBitMask = physicsCategory.powerup
+        player.physicsBody?.contactTestBitMask = physicsCategory.powerup | physicsCategory.enemy
         player.physicsBody?.dynamic = false
         return player
     }

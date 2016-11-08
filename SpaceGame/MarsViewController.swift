@@ -9,7 +9,14 @@
 import UIKit
 import SpriteKit
 
-class MarsViewController: UIViewController {
+class MarsViewController: UIViewController, DeathSceneDelegate {
+    
+    func launchViewController(scene: SKScene) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = mainStoryboard.instantiateViewControllerWithIdentifier("Death") as! DeathViewController
+        presentViewController(vc, animated: true, completion: nil)
+        // note that you don't need to go through a bunch of optionals to call presentViewController
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +32,7 @@ class MarsViewController: UIViewController {
             
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
-            
+            scene.collisionDelegate = self
             skView.presentScene(scene)
         }
     }

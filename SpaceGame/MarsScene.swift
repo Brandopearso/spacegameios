@@ -9,10 +9,16 @@
 import SpriteKit
 import AVFoundation
 
+protocol DeathSceneDelegate {
+    
+    func launchViewController(scene: SKScene)
+}
+
 class MarsScene: SKScene, SKPhysicsContactDelegate {
     
     let level = Level()
     var enemylist = [SKNode]()
+    var collisionDelegate: DeathSceneDelegate?
     
     override func didMoveToView(view: SKView) {
         
@@ -46,6 +52,13 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func died() {
+        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = mainStoryboard.instantiateViewControllerWithIdentifier("Death") as! DeathViewController
+        self.collisionDelegate!.launchViewController(self)
+    }
+    
     func didBeginContact(contact: SKPhysicsContact) {
         
         let firstBody : SKPhysicsBody = contact.bodyA
@@ -53,6 +66,17 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         
         let randomIntForWeaponPowerup:UInt32 = arc4random_uniform(4)
 
+        if ((firstBody.categoryBitMask == physicsCategory.enemy) && secondBody.categoryBitMask == physicsCategory.player) {
+            
+            level.PlayerCollisionWithEnemy(secondBody.node as! SKSpriteNode, enemy: firstBody.node as! SKSpriteNode)
+            died()
+        }
+        if ((firstBody.categoryBitMask == physicsCategory.player) && secondBody.categoryBitMask == physicsCategory.enemy) {
+            
+            level.PlayerCollisionWithEnemy(firstBody.node as! SKSpriteNode, enemy: secondBody.node as! SKSpriteNode)
+            died()
+        }
+        
         if ((firstBody.categoryBitMask == physicsCategory.enemy) && (secondBody.categoryBitMask == physicsCategory.bullet)) {
             
             let enemy  = firstBody.node

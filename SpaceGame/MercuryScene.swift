@@ -13,6 +13,7 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
     
     let level = Level()
     var enemylist = [SKNode]()
+    var collisionDelegate: DeathSceneDelegate?
     
     override func didMoveToView(view: SKView) {
         
@@ -42,8 +43,15 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
         self.view?.addSubview(score)
         
         // enemy timer
-        _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(MercuryScene.spawnEnemy), userInfo: nil, repeats: true)
+        _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(MarsScene.spawnEnemy), userInfo: nil, repeats: true)
         
+    }
+    
+    func died() {
+        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = mainStoryboard.instantiateViewControllerWithIdentifier("Death") as! DeathViewController
+        self.collisionDelegate!.launchViewController(self)
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -52,6 +60,17 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
         let secondBody : SKPhysicsBody = contact.bodyB
         
         let randomIntForWeaponPowerup:UInt32 = arc4random_uniform(4)
+        
+        if ((firstBody.categoryBitMask == physicsCategory.enemy) && secondBody.categoryBitMask == physicsCategory.player) {
+            
+            level.PlayerCollisionWithEnemy(secondBody.node as! SKSpriteNode, enemy: firstBody.node as! SKSpriteNode)
+            died()
+        }
+        if ((firstBody.categoryBitMask == physicsCategory.player) && secondBody.categoryBitMask == physicsCategory.enemy) {
+            
+            level.PlayerCollisionWithEnemy(firstBody.node as! SKSpriteNode, enemy: secondBody.node as! SKSpriteNode)
+            died()
+        }
         
         if ((firstBody.categoryBitMask == physicsCategory.enemy) && (secondBody.categoryBitMask == physicsCategory.bullet)) {
             
@@ -85,7 +104,6 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
         if((firstBody.categoryBitMask == physicsCategory.bullet) && (secondBody.categoryBitMask == physicsCategory.enemy)){
             
             let enemy  = secondBody.node
-            
             if enemylist.contains(enemy!) {
                 level.PlayerCollisionWithBullet(firstBody.node as! SKSpriteNode, bullet: secondBody.node as! SKSpriteNode)
                 

@@ -139,7 +139,7 @@ class Enemy {
         
         enemy.physicsBody = SKPhysicsBody(rectangleOfSize: enemy.size)
         enemy.physicsBody?.categoryBitMask = physicsCategory.enemy
-        enemy.physicsBody?.contactTestBitMask = physicsCategory.bullet
+        enemy.physicsBody?.contactTestBitMask = physicsCategory.bullet | physicsCategory.player
         enemy.physicsBody?.affectedByGravity = false
         enemy.physicsBody?.dynamic = true
         

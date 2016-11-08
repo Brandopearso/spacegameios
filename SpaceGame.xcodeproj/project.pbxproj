@@ -21,6 +21,7 @@
 		018384851D867A5200BAD87A /* SpaceGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018384841D867A5200BAD87A /* SpaceGameUITests.swift */; };
 		0188C1101DC0923300484440 /* laser.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0188C10F1DC0923300484440 /* laser.mp3 */; };
 		0188C1121DC2C0A000484440 /* space_no_planets.png in Resources */ = {isa = PBXBuildFile; fileRef = 0188C1111DC2C0A000484440 /* space_no_planets.png */; };
+		019B67A21DD26C1E00871153 /* DeathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019B67A11DD26C1E00871153 /* DeathViewController.swift */; };
 		01B3BC101DC06795007B4C4D /* EarthScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01B3BC0F1DC06795007B4C4D /* EarthScene.sks */; };
 		01B3BC121DC06BA3007B4C4D /* VenusScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01B3BC111DC06BA2007B4C4D /* VenusScene.sks */; };
 		01B3BC161DC06D0D007B4C4D /* MarsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01B3BC131DC06D0D007B4C4D /* MarsScene.sks */; };
@@ -95,6 +96,7 @@
 		018384861D867A5200BAD87A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0188C10F1DC0923300484440 /* laser.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = laser.mp3; sourceTree = "<group>"; };
 		0188C1111DC2C0A000484440 /* space_no_planets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = space_no_planets.png; sourceTree = "<group>"; };
+		019B67A11DD26C1E00871153 /* DeathViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeathViewController.swift; sourceTree = "<group>"; };
 		01B3BC0F1DC06795007B4C4D /* EarthScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EarthScene.sks; sourceTree = "<group>"; };
 		01B3BC111DC06BA2007B4C4D /* VenusScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = VenusScene.sks; sourceTree = "<group>"; };
 		01B3BC131DC06D0D007B4C4D /* MarsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MarsScene.sks; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				01B3BC1B1DC06E69007B4C4D /* JupiterViewController.swift */,
 				01B3BC151DC06D0D007B4C4D /* MarsViewController.swift */,
 				018384681D867A5200BAD87A /* Main.storyboard */,
+				019B67A11DD26C1E00871153 /* DeathViewController.swift */,
 				01033B8F1DBDB18C0059F8E5 /* EarthViewController.swift */,
 				01033B911DBDB1B70059F8E5 /* EarthScene.swift */,
 				01033B8B1DBDB0650059F8E5 /* VenusViewController.swift */,
@@ -417,6 +420,7 @@
 				01B3BC1D1DC06E69007B4C4D /* JupiterScene.swift in Sources */,
 				01B3BC301DC0726F007B4C4D /* NeptuneViewController.swift in Sources */,
 				01C8DAA11DCEBC0700869D18 /* Enemy.swift in Sources */,
+				019B67A21DD26C1E00871153 /* DeathViewController.swift in Sources */,
 				01033B921DBDB1B70059F8E5 /* EarthScene.swift in Sources */,
 				F921A9DF1DBBDD4500439426 /* SettingsViewController.swift in Sources */,
 				01033B8C1DBDB0650059F8E5 /* VenusViewController.swift in Sources */,

@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpaceGame/MarsScene.swift"
-            timestampString = "500280859.990874"
+            timestampString = "500331087.922166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "didMoveToView(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpaceGame/MarsScene.swift"
-            timestampString = "500281187.733517"
+            timestampString = "500331087.922166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "spawnEnemy()"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpaceGame/MarsScene.swift"
-            timestampString = "500280859.990874"
+            timestampString = "500331087.922166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "didMoveToView(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpaceGame/MarsScene.swift"
-            timestampString = "500281187.733517"
+            timestampString = "500331087.922166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "spawnPowerup(_:weaponNum:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpaceGame/MarsScene.swift"
-            timestampString = "500280859.990874"
+            timestampString = "500331087.922166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "didBeginContact(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -224,6 +224,98 @@
             startingLineNumber = "12"
             endingLineNumber = "12"
             landmarkName = "physicsCategory"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpaceGame/MarsScene.swift"
+            timestampString = "500330255.766289"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpaceGame.MarsScene.__deallocating_deinit"
+                  moduleName = "SpaceGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brandonpearson/Desktop/shit/SpaceGame/SpaceGame/MarsScene.swift"
+                  timestampString = "500331089.660594"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpaceGame.MarsScene.init (size : __C.CGSize) -&gt; SpaceGame.MarsScene"
+                  moduleName = "SpaceGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brandonpearson/Desktop/shit/SpaceGame/SpaceGame/MarsScene.swift"
+                  timestampString = "500331089.661134"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpaceGame.MarsScene.init () -&gt; SpaceGame.MarsScene"
+                  moduleName = "SpaceGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brandonpearson/Desktop/shit/SpaceGame/SpaceGame/MarsScene.swift"
+                  timestampString = "500331089.661613"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpaceGame.MarsScene.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;SpaceGame.MarsScene&gt;"
+                  moduleName = "SpaceGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brandonpearson/Desktop/shit/SpaceGame/SpaceGame/MarsScene.swift"
+                  timestampString = "500331089.668381"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpaceGame/MarsViewController.swift"
+            timestampString = "500331044.069342"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "MarsViewController"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
