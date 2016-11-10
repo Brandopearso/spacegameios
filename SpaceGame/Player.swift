@@ -14,10 +14,12 @@ class Player {
     var node:SKSpriteNode! = nil
     var health:Int
     var weapon:Int = 0
+    var score:Int = 0
     
     init() {
         
         self.health = 1
+        self.score = 0
         self.node = spawn()
     }
     

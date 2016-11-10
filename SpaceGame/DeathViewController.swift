@@ -10,7 +10,11 @@ import Foundation
 import UIKit
 import SpriteKit
 
-class DeathViewController : UIViewController {
-    
+class DeathViewController : UIViewController
+{
+    override func viewDidLoad()
+    {
+        
+    }
     
 }

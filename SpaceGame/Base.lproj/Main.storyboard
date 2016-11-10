@@ -182,11 +182,11 @@
                         <viewControllerLayoutGuide type="bottom" id="e38-f1-nTV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aam-UD-gPe">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="qi4-MX-wO3">
-                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEd-Qw-N7c" userLabel="Mercury">
                                 <rect key="frame" x="7" y="182" width="48" height="48"/>
@@ -357,19 +357,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You died" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ma-o0-Gz1">
-                                <rect key="frame" x="254" y="170" width="67" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nST-WG-Bac">
+                                <rect key="frame" x="219" y="133" width="162" height="101"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="You Died"/>
+                                <connections>
+                                    <segue destination="B6u-FX-rdo" kind="show" id="xLc-tw-Z5N"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="can-fa-z4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="309" y="970"/>
+            <point key="canvasLocation" x="-125" y="1310"/>
         </scene>
         <!--Mercury View Controller-->
         <scene sceneID="jdF-YL-zZL">
@@ -380,7 +382,7 @@
                         <viewControllerLayoutGuide type="bottom" id="yuw-R5-hVz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kuw-q4-Jzk" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -398,7 +400,7 @@
                         <viewControllerLayoutGuide type="bottom" id="D4j-aa-ojf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CHD-m3-jRh" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -416,7 +418,7 @@
                         <viewControllerLayoutGuide type="bottom" id="TbG-wf-Sgu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="usa-5n-eH7" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -434,7 +436,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Nzq-f0-SE9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MS5-Zj-TDn" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -452,7 +454,7 @@
                         <viewControllerLayoutGuide type="bottom" id="u6G-xK-0sJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lCW-gC-YeQ" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -470,7 +472,7 @@
                         <viewControllerLayoutGuide type="bottom" id="BzS-LW-GcV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3u4-rQ-XYX" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -488,7 +490,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cxT-D4-lUa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oUI-vE-hib" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -506,7 +508,7 @@
                         <viewControllerLayoutGuide type="bottom" id="rBG-1o-6af"/>
                     </layoutGuides>
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3Ms-hu-m5W" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -527,4 +529,7 @@
         <image name="sprites/Uranus_.png" width="48" height="48"/>
         <image name="sprites/Venus_.png" width="64" height="64"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xLc-tw-Z5N"/>
+    </inferredMetricsTieBreakers>
 </document>

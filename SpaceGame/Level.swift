@@ -14,7 +14,9 @@ class Level {
     
     var player:Player = Player()
     var score: Int = 0
+    var highscore: Int = 0
     var scoreLabel = UILabel()
+    var highscoreLabel = UILabel()
     var button: SKNode! = nil
     var audioPlayer: AVAudioPlayer?
     var audioLaser: AVAudioPlayer?
@@ -22,12 +24,14 @@ class Level {
     var enemylist = [Enemy]()
 
     init() {
-        
-        
         self.button = spawnFireButton()
         makeBackground()
         makeScoreLabel()
+        makeHighScoreLabel()
         playMusic()
+        
+        let HighscoreDefault = NSUserDefaults.standardUserDefaults()
+        highscore = HighscoreDefault.valueForKey("Highscore") as! NSInteger
     }
     
     
@@ -36,8 +40,16 @@ class Level {
         enemy.removeFromParent()
         bullet.removeFromParent()
         self.score+=1
+        if self.score > self.highscore
+        {
+            self.highscore = self.score
+            let HighscoreDefault = NSUserDefaults.standardUserDefaults()
+            HighscoreDefault.setValue(self.highscore, forKey: "Highscore")
+            HighscoreDefault.synchronize()
+        }
         
         self.scoreLabel.text = "\(self.score)"
+        self.highscoreLabel.text = "\(self.highscore)"
     }
     
     func PlayerCollisionWithEnemy(player: SKSpriteNode, enemy: SKSpriteNode) {
@@ -108,12 +120,20 @@ class Level {
         background.zPosition = -100
     }
     
-    func makeScoreLabel() {
-        
+    func makeScoreLabel()
+    {
         scoreLabel.text = "\(score)"
         scoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
         scoreLabel.backgroundColor = UIColor.blackColor()
         scoreLabel.textColor = UIColor.whiteColor()
+    }
+    
+    func makeHighScoreLabel()
+    {
+        highscoreLabel.text = "\(highscore)"
+        highscoreLabel = UILabel(frame: CGRect(x: 300, y: 0, width: 100, height: 20))
+        highscoreLabel.backgroundColor = UIColor.blackColor()
+        highscoreLabel.textColor = UIColor.whiteColor()
     }
     
     func spawnFireButton() -> SKSpriteNode {

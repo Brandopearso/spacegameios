@@ -39,7 +39,9 @@ class SaturnScene: SKScene, SKPhysicsContactDelegate {
         
         // add score
         let score = level.scoreLabel
+        let highscore = level.highscoreLabel
         self.view?.addSubview(score)
+        self.view?.addSubview(highscore)
         
         // enemy timer
         _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(MarsScene.spawnEnemy), userInfo: nil, repeats: true)
@@ -84,7 +86,6 @@ class SaturnScene: SKScene, SKPhysicsContactDelegate {
                     if (enemy_i.health == 0) {
                         
                         level.PlayerCollisionWithBullet(firstBody.node as! SKSpriteNode, bullet: secondBody.node as! SKSpriteNode)
-                        let enemy  = firstBody.node
                         let pos:CGPoint = (enemy?.position)!
                         spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
                         level.enemylist.removeAtIndex(i)
