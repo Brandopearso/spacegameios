@@ -31,7 +31,12 @@ class Level {
         playMusic()
         
         let HighscoreDefault = NSUserDefaults.standardUserDefaults()
-        highscore = HighscoreDefault.valueForKey("Highscore") as! NSInteger
+        if(HighscoreDefault.valueForKey("Highscore") == nil)
+        {
+            HighscoreDefault.setValue(self.highscore, forKey: "Highscore")
+            HighscoreDefault.synchronize()
+        }
+        highscore = HighscoreDefault.valueForKey("Highscore") as! NSInteger!
     }
     
     
