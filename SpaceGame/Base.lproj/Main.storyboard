@@ -366,14 +366,22 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DK-hM-mIg">
-                                <rect key="frame" x="235" y="285" width="131" height="30"/>
+                                <rect key="frame" x="165" y="285" width="131" height="30"/>
                                 <state key="normal" title="Share to Twitter"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngd-oK-hSA">
-                                <rect key="frame" x="235" y="285" width="131" height="30"/>
+                                <rect key="frame" x="165" y="285" width="131" height="30"/>
                                 <state key="normal" title="Share to Twitter"/>
                                 <connections>
                                     <action selector="sendTweetButtonHandler:" destination="NPW-6L-A15" eventType="touchUpInside" id="Efd-M9-xeE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCA-BY-eeV">
+                                <rect key="frame" x="304" y="285" width="131" height="30"/>
+                                <state key="normal" title="Share to Facebook"/>
+                                <connections>
+                                    <action selector="sendFbButtonHandler:" destination="NPW-6L-A15" eventType="touchUpInside" id="n6T-4V-u56"/>
+                                    <action selector="sendTweetButtonHandler:" destination="NPW-6L-A15" eventType="touchUpInside" id="3bp-wi-fg9"/>
                                 </connections>
                             </button>
                         </subviews>
