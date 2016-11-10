@@ -365,6 +365,17 @@
                                     <segue destination="B6u-FX-rdo" kind="show" id="xLc-tw-Z5N"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DK-hM-mIg">
+                                <rect key="frame" x="235" y="285" width="131" height="30"/>
+                                <state key="normal" title="Share to Twitter"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngd-oK-hSA">
+                                <rect key="frame" x="235" y="285" width="131" height="30"/>
+                                <state key="normal" title="Share to Twitter"/>
+                                <connections>
+                                    <action selector="sendTweetButtonHandler:" destination="NPW-6L-A15" eventType="touchUpInside" id="Efd-M9-xeE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
