@@ -377,10 +377,6 @@
                                     <segue destination="B6u-FX-rdo" kind="show" id="xLc-tw-Z5N"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DK-hM-mIg">
-                                <rect key="frame" x="235" y="369" width="131" height="30"/>
-                                <state key="normal" title="Share to Twitter"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCA-BY-eeV">
                                 <rect key="frame" x="235" y="412" width="131" height="30"/>
                                 <state key="normal" title="Share to Facebook"/>
@@ -582,6 +578,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xLc-tw-Z5N"/>
-        <segue reference="wLm-Ke-395"/>
+        <segue reference="Q3O-vb-K0M"/>
     </inferredMetricsTieBreakers>
 </document>
