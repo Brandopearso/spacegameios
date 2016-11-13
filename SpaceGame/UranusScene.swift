@@ -194,8 +194,8 @@ class UranusScene: SKScene, SKPhysicsContactDelegate {
         var enemy:Enemy
         if random_num % 2 == 0 {
             
-            enemy = Enemy(type: "bee_red", frames: 0.25, speed:1.6)
-            enemy.node.name = "bee_red"
+            enemy = Enemy(type: "cyclops_red", frames: 0.25, speed:2.5)
+            enemy.node.name = "cyclops_red"
         }
         else {
             

@@ -202,12 +202,12 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
         var enemy:Enemy
         if random_num % 2 == 0 {
             
-            enemy = Enemy(type: "squid_blue", frames: 0.25, speed:0.3)
+            enemy = Enemy(type: "squid_blue", frames: 0.25, speed:3.0)
             enemy.node.name = "squid_blue"
         }
         else {
             
-            enemy = Enemy(type: "squid_blue", frames: 0.25, speed:0.3)
+            enemy = Enemy(type: "squid_blue", frames: 0.25, speed:3.0)
             enemy.node.name = "squid_blue"
         }
         let minValue = self.size.height / 6

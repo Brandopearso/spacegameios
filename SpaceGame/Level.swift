@@ -165,7 +165,7 @@ class Level {
     
     func spawnFireButton() -> SKSpriteNode {
         
-        let button = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 200, height: 100))
+        let button = SKSpriteNode(imageNamed:"sprites/firebutton.png")
         return button
     }
     
