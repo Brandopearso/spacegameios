@@ -14,6 +14,10 @@ protocol DeathSceneDelegate {
     func launchViewController(scene: SKScene)
 }
 
+import SpriteKit
+import AVFoundation
+import UIKit
+
 class MercuryScene: SKScene, SKPhysicsContactDelegate {
     
     let level = Level()
@@ -21,6 +25,8 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         
+        level.height = self.size.height
+        level.width = self.size.width
         
         // setup physics
         self.physicsWorld.contactDelegate = self
@@ -51,12 +57,23 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
         // enemy timer
         _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(MarsScene.spawnEnemy), userInfo: nil, repeats: true)
         
+        let pauseButton = level.pauseButton
+        pauseButton.position = CGPoint(x:self.size.width - 200, y: self.size.height - 130)
+        addChild(pauseButton)
+        
+        let saveButton = level.saveButton
+        saveButton.position = CGPoint(x:self.size.width - 100, y: self.size.height - 130)
+        addChild(saveButton)
     }
     
     func died() {
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = mainStoryboard.instantiateViewControllerWithIdentifier("Death") as! DeathViewController
+        let savescoreDefault = NSUserDefaults.standardUserDefaults()
+        savescoreDefault.setValue(0, forKey: "Savescore")
+        savescoreDefault.synchronize()
+        
         self.collisionDelegate!.launchViewController(self)
     }
     
@@ -66,6 +83,7 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
         let secondBody : SKPhysicsBody = contact.bodyB
         
         let randomIntForWeaponPowerup:UInt32 = arc4random_uniform(4)
+        let randomIntForSpawnPowerup:UInt32 = arc4random_uniform(4)
         
         if ((firstBody.categoryBitMask == physicsCategory.enemy) && secondBody.categoryBitMask == physicsCategory.player) {
             
@@ -88,11 +106,14 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
                     
                     enemy_i.health = enemy_i.health - 1
                     
-                    if (enemy_i.health == 0) {
-                        
+                    if (enemy_i.health <= 0)
+                    {
                         level.PlayerCollisionWithBullet(firstBody.node as! SKSpriteNode, bullet: secondBody.node as! SKSpriteNode)
                         let pos:CGPoint = (enemy?.position)!
-                        spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
+                        
+                        if randomIntForSpawnPowerup == 1 {
+                            spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
+                        }
                         level.enemylist.removeAtIndex(i)
                     }
                 }
@@ -119,17 +140,24 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
                     
                     enemy_i.health = enemy_i.health - 1
                     
-                    if (enemy_i.health == 0) {
+                    if (enemy_i.health <= 0) {
                         
                         level.PlayerCollisionWithBullet(secondBody.node as! SKSpriteNode, bullet: firstBody.node as! SKSpriteNode)
-                        let enemy  = firstBody.node
                         let pos:CGPoint = (enemy?.position)!
-                        spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
+                        
+                        if randomIntForSpawnPowerup == 1 {
+                            spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
+                        }
                         level.enemylist.removeAtIndex(i)
                     }
                 }
             }
         }
+    }
+    
+    func pauseGame()
+    {
+        scene!.view!.paused = true
     }
     
     func spawnPowerup(pos:CGPoint, weaponNum:UInt32) {
@@ -170,7 +198,18 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
     
     func spawnEnemy() {
         
-        var enemy:Enemy = Enemy(type: "squid_blue", frames: 0.25, speed:3.0)
+        let random_num = arc4random_uniform(10)
+        var enemy:Enemy
+        if random_num % 2 == 0 {
+            
+            enemy = Enemy(type: "squid_blue", frames: 0.25, speed:0.3)
+            enemy.node.name = "squid_blue"
+        }
+        else {
+            
+            enemy = Enemy(type: "squid_blue", frames: 0.25, speed:0.3)
+            enemy.node.name = "squid_blue"
+        }
         let minValue = self.size.height / 6
         let maxValue = self.size.width
         let spawnPoint = UInt32(maxValue - minValue)
@@ -179,6 +218,8 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
         enemy.node.position = CGPoint(x: self.size.width, y: CGFloat(arc4random_uniform(spawnPoint)))
         enemy.height = self.size.height
         enemy.width = self.size.width
+        
+        level.enemylist.append(enemy)
         self.addChild(enemy.node)
     }
     
@@ -220,6 +261,23 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
             if level.button.containsPoint(location) {
                 
                 spawnBullets()
+            }
+            else if level.pauseButton.containsPoint(location) {
+                
+                if (scene!.view!.paused == true) {
+                    scene!.view!.paused = false
+                }
+                else {
+                    scene!.view!.paused = true
+                }
+            }
+            else if level.saveButton.containsPoint(location) {
+                
+                let savescoreDefault = NSUserDefaults.standardUserDefaults()
+                savescoreDefault.setValue(level.score, forKey: "Savescore")
+                savescoreDefault.synchronize()
+                level.score = savescoreDefault.valueForKey("Savescore") as! NSInteger!
+                print ("saved score")
             }
             else {
                 

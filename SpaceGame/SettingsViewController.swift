@@ -62,6 +62,8 @@ class SettingsViewController: UIViewController {
         defaults.synchronize()
     }
     
+    
+    
     @IBAction func sfxToggleButtonHandler(sender: AnyObject) {
         if (sfxToggle! == true) {
             sfxToggle = false

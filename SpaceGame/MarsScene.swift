@@ -8,6 +8,7 @@
 
 import SpriteKit
 import AVFoundation
+import UIKit
 
 class MarsScene: SKScene, SKPhysicsContactDelegate {
     
@@ -16,6 +17,8 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         
+        level.height = self.size.height
+        level.width = self.size.width
         
         // setup physics
         self.physicsWorld.contactDelegate = self
@@ -46,12 +49,23 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         // enemy timer
         _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(MarsScene.spawnEnemy), userInfo: nil, repeats: true)
         
+        let pauseButton = level.pauseButton
+        pauseButton.position = CGPoint(x:self.size.width - 200, y: self.size.height - 130)
+        addChild(pauseButton)
+        
+        let saveButton = level.saveButton
+        saveButton.position = CGPoint(x:self.size.width - 100, y: self.size.height - 130)
+        addChild(saveButton)
     }
     
     func died() {
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = mainStoryboard.instantiateViewControllerWithIdentifier("Death") as! DeathViewController
+        let savescoreDefault = NSUserDefaults.standardUserDefaults()
+        savescoreDefault.setValue(0, forKey: "Savescore")
+        savescoreDefault.synchronize()
+        
         self.collisionDelegate!.launchViewController(self)
     }
     
@@ -61,7 +75,8 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         let secondBody : SKPhysicsBody = contact.bodyB
         
         let randomIntForWeaponPowerup:UInt32 = arc4random_uniform(4)
-
+        let randomIntForSpawnPowerup:UInt32 = arc4random_uniform(4)
+        
         if ((firstBody.categoryBitMask == physicsCategory.enemy) && secondBody.categoryBitMask == physicsCategory.player) {
             
             level.PlayerCollisionWithEnemy(secondBody.node as! SKSpriteNode, enemy: firstBody.node as! SKSpriteNode)
@@ -83,11 +98,14 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
                     
                     enemy_i.health = enemy_i.health - 1
                     
-                    if (enemy_i.health == 0)
+                    if (enemy_i.health <= 0)
                     {
                         level.PlayerCollisionWithBullet(firstBody.node as! SKSpriteNode, bullet: secondBody.node as! SKSpriteNode)
                         let pos:CGPoint = (enemy?.position)!
-                        spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
+                        
+                        if randomIntForSpawnPowerup == 1 {
+                            spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
+                        }
                         level.enemylist.removeAtIndex(i)
                     }
                 }
@@ -114,16 +132,24 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
                     
                     enemy_i.health = enemy_i.health - 1
                     
-                    if (enemy_i.health == 0) {
+                    if (enemy_i.health <= 0) {
                         
                         level.PlayerCollisionWithBullet(secondBody.node as! SKSpriteNode, bullet: firstBody.node as! SKSpriteNode)
                         let pos:CGPoint = (enemy?.position)!
-                        spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
+                        
+                        if randomIntForSpawnPowerup == 1 {
+                            spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
+                        }
                         level.enemylist.removeAtIndex(i)
                     }
                 }
             }
         }
+    }
+    
+    func pauseGame()
+    {
+        scene!.view!.paused = true
     }
     
     func spawnPowerup(pos:CGPoint, weaponNum:UInt32) {
@@ -168,8 +194,8 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         var enemy:Enemy
         if random_num % 2 == 0 {
             
-            enemy = Enemy(type: "bee_red", frames: 0.25, speed:1.6)
-            enemy.node.name = "red_bee"
+            enemy = Enemy(type: "bee_blue", frames: 0.25, speed:1.6)
+            enemy.node.name = "bee_blue"
         }
         else {
             
@@ -227,6 +253,23 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
             if level.button.containsPoint(location) {
                 
                 spawnBullets()
+            }
+            else if level.pauseButton.containsPoint(location) {
+                
+                if (scene!.view!.paused == true) {
+                    scene!.view!.paused = false
+                }
+                else {
+                    scene!.view!.paused = true
+                }
+            }
+            else if level.saveButton.containsPoint(location) {
+                
+                let savescoreDefault = NSUserDefaults.standardUserDefaults()
+                savescoreDefault.setValue(level.score, forKey: "Savescore")
+                savescoreDefault.synchronize()
+                level.score = savescoreDefault.valueForKey("Savescore") as! NSInteger!
+                print ("saved score")
             }
             else {
                 

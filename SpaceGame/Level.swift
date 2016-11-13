@@ -18,10 +18,14 @@ class Level {
     var scoreLabel = UILabel()
     var highscoreLabel = UILabel()
     var button: SKNode! = nil
+    var pauseButton: SKNode! = nil
+    var saveButton: SKNode! = nil
     var audioPlayer: AVAudioPlayer?
     var audioLaser: AVAudioPlayer?
     var background = SKSpriteNode(imageNamed: "space_no_planets.png")
     var enemylist = [Enemy]()
+    var width:CGFloat = 0
+    var height:CGFloat = 0
 
     init() {
         self.button = spawnFireButton()
@@ -29,12 +33,26 @@ class Level {
         makeScoreLabel()
         makeHighScoreLabel()
         playMusic()
+        self.pauseButton = spawnPauseButton()
+        self.saveButton = spawnSaveButton()
         
         let HighscoreDefault = NSUserDefaults.standardUserDefaults()
         if(HighscoreDefault.valueForKey("Highscore") == nil)
         {
             HighscoreDefault.setValue(self.highscore, forKey: "Highscore")
             HighscoreDefault.synchronize()
+        }
+        
+        let savescoreDefault = NSUserDefaults.standardUserDefaults()
+        if(savescoreDefault.valueForKey("Savescore") != nil)
+        {
+            score = savescoreDefault.valueForKey("Savescore") as! NSInteger!
+            print ("loaded save score")
+        }
+        else {
+            
+            savescoreDefault.setValue(0, forKey: "Savescore")
+            savescoreDefault.synchronize()
         }
         highscore = HighscoreDefault.valueForKey("Highscore") as! NSInteger!
     }
@@ -53,8 +71,8 @@ class Level {
             HighscoreDefault.synchronize()
         }
         
-        self.scoreLabel.text = "\(self.score)"
-        self.highscoreLabel.text = "\(self.highscore)"
+        self.scoreLabel.text = "Current Score: \(self.score)"
+        self.highscoreLabel.text = "High Score: \(self.highscore)"
     }
     
     func PlayerCollisionWithEnemy(player: SKSpriteNode, enemy: SKSpriteNode) {
@@ -127,23 +145,39 @@ class Level {
     
     func makeScoreLabel()
     {
-        scoreLabel.text = "\(score)"
+        scoreLabel.text = "Current Score: \(score)"
         scoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
         scoreLabel.backgroundColor = UIColor.blackColor()
         scoreLabel.textColor = UIColor.whiteColor()
+        scoreLabel.adjustsFontSizeToFitWidth = true
+
     }
     
     func makeHighScoreLabel()
     {
-        highscoreLabel.text = "\(highscore)"
-        highscoreLabel = UILabel(frame: CGRect(x: 300, y: 0, width: 100, height: 20))
+        highscoreLabel.text = "Highscore: \(highscore)"
+        highscoreLabel = UILabel(frame: CGRect(x: 150, y: 0, width: 100, height: 20))
         highscoreLabel.backgroundColor = UIColor.blackColor()
         highscoreLabel.textColor = UIColor.whiteColor()
+        highscoreLabel.adjustsFontSizeToFitWidth = true
+
     }
     
     func spawnFireButton() -> SKSpriteNode {
         
         let button = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: 200, height: 100))
+        return button
+    }
+    
+    func spawnPauseButton() -> SKSpriteNode {
+        
+        let button = SKSpriteNode(imageNamed:"sprites/pausebutton.png")
+        return button
+    }
+    
+    func spawnSaveButton() -> SKSpriteNode {
+        
+        let button = SKSpriteNode(imageNamed:"sprites/savebutton.png")
         return button
     }
 }

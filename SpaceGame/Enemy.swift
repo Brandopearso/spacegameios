@@ -56,7 +56,7 @@ class Enemy {
                 self.node = spawn()
                 self.hasBullets = true
             default:
-                self.health = 1
+                self.health = 99
                 self.node = spawn()
         }
     }
