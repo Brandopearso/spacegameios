@@ -38,7 +38,9 @@ class LoginViewController: UIViewController
         }
         else
         {
-            
+            var email = self.Email.text!.lowercaseString;
+            email = email.stringByReplacingOccurrencesOfString(".", withString: ",")
+            self.ref?.child("Users").child(email).child("Highscore").setValue(0)
             let create = UIAlertController(title: "create", message: "Account created and Loged in", preferredStyle: UIAlertControllerStyle.Alert)
             create.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: {(action: UIAlertAction!) in
                 self.moveOn(sender)}))

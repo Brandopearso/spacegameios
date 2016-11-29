@@ -9,6 +9,8 @@
 import Foundation
 import SpriteKit
 import AVFoundation
+import Firebase
+import FirebaseDatabase
 
 class Level {
     
@@ -26,6 +28,7 @@ class Level {
     var enemylist = [Enemy]()
     var width:CGFloat = 0
     var height:CGFloat = 0
+    var ref: FIRDatabaseReference?
 
     init() {
         self.button = spawnFireButton()
@@ -35,6 +38,32 @@ class Level {
         playMusic()
         self.pauseButton = spawnPauseButton()
         self.saveButton = spawnSaveButton()
+        
+        ref = FIRDatabase.database().reference().child("Users")
+        var email = (FIRAuth.auth()?.currentUser?.email)!
+        email = email.stringByReplacingOccurrencesOfString(".", withString: ",")
+        ref = ref!.child(email)
+        ref!.observeEventType(.Value, withBlock:  { (snapshot) in
+            if snapshot.value is NSNull{
+                
+            }
+            else
+            {
+                if let score = snapshot.value!.objectForKey("Highscore") as? Int
+                {
+                    self.highscore = score
+                    print(self.highscore)
+                }
+                else
+                {
+                    print("it was nil")
+                }
+            }
+            
+            })
+        {(error) in
+            print("error")
+        }
         
         let HighscoreDefault = NSUserDefaults.standardUserDefaults()
         if(HighscoreDefault.valueForKey("Highscore") == nil)
@@ -54,7 +83,8 @@ class Level {
             savescoreDefault.setValue(0, forKey: "Savescore")
             savescoreDefault.synchronize()
         }
-        highscore = HighscoreDefault.valueForKey("Highscore") as! NSInteger!
+        
+        //highscore = HighscoreDefault.valueForKey("Highscore") as! NSInteger!
     }
     
     
