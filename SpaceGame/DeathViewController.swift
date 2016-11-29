@@ -40,20 +40,7 @@ class DeathViewController : UIViewController
         })
         let highscore = NSUserDefaults.standardUserDefaults().valueForKey("Highscore") as! NSInteger!
         let userID = (FIRAuth.auth()?.currentUser?.uid)!
-        ref.child("Users").child(userID).observeSingleEventType(.Value) { (snapshot) in
-            let score = snapshot.value!["Highscore"] as! Int
-            if score == nil
-            {
-                
-            }
-            else
-            {
-                if(highscore > score)
-                {
-                    
-                }
-            }
-        }
+       
         
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             let twitterController:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)

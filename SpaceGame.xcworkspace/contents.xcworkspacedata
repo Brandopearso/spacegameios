@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:SpaceGame/GoogleService-Info.plist">
+   </FileRef>
+   <FileRef
       location = "group:SpaceGame.xcodeproj">
    </FileRef>
    <FileRef
