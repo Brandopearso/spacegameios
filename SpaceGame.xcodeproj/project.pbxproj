@@ -54,6 +54,7 @@
 		01E9DA941DD1BEF200A0DCAC /* MercuryScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01E9DA921DD1BEF200A0DCAC /* MercuryScene.sks */; };
 		01E9DA951DD1BEF200A0DCAC /* MercuryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9DA931DD1BEF200A0DCAC /* MercuryScene.swift */; };
 		06389FFE1DECBA6D00316D3C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06389FFD1DECBA6D00316D3C /* LoginViewController.swift */; };
+		0638A0001DED158300316D3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06389FFF1DED158300316D3C /* GoogleService-Info.plist */; };
 		4BF5986530B39CFA362B8146 /* Pods_SpaceGameTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD558956DDE63F40D353024E /* Pods_SpaceGameTests.framework */; };
 		D13AE038A1B8F535FE2D51A4 /* Pods_SpaceGameUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE703314ABF9FA41E2D4807 /* Pods_SpaceGameUITests.framework */; };
 		DE2D342C6D90FF765929E8FE /* Pods_SpaceGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F949DC892E139EA629ECCD14 /* Pods_SpaceGame.framework */; };
@@ -133,6 +134,7 @@
 		01E9DA921DD1BEF200A0DCAC /* MercuryScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MercuryScene.sks; sourceTree = "<group>"; };
 		01E9DA931DD1BEF200A0DCAC /* MercuryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercuryScene.swift; sourceTree = "<group>"; };
 		06389FFD1DECBA6D00316D3C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		06389FFF1DED158300316D3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31843170DD5F696E148A7DED /* Pods-SpaceGameUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceGameUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceGameUITests/Pods-SpaceGameUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3F3206B78CB3C8FCD0934D12 /* Pods-SpaceGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceGame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceGame/Pods-SpaceGame.debug.xcconfig"; sourceTree = "<group>"; };
 		4385B5F6EBBF283FEBCE3474 /* Pods-SpaceGameTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceGameTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceGameTests/Pods-SpaceGameTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		0183845F1D867A5200BAD87A /* SpaceGame */ = {
 			isa = PBXGroup;
 			children = (
+				06389FFF1DED158300316D3C /* GoogleService-Info.plist */,
 				01C8DAA41DCED21300869D18 /* bee_blue.atlas */,
 				01C8DA911DCEB70300869D18 /* bee_red.atlas */,
 				01C8DA921DCEB70300869D18 /* cyclops_blue.atlas */,
@@ -425,6 +428,7 @@
 				0183846C1D867A5200BAD87A /* Assets.xcassets in Resources */,
 				01C8DA9B1DCEB70300869D18 /* cyclops_red.atlas in Resources */,
 				01B3BC121DC06BA3007B4C4D /* VenusScene.sks in Resources */,
+				0638A0001DED158300316D3C /* GoogleService-Info.plist in Resources */,
 				01B3BC1C1DC06E69007B4C4D /* JupiterScene.sks in Resources */,
 				01C8DA9A1DCEB70300869D18 /* cyclops_blue.atlas in Resources */,
 				01C8DAA51DCED21300869D18 /* bee_blue.atlas in Resources */,
