@@ -11,9 +11,13 @@ import UIKit
 import SpriteKit
 import Social
 import Accounts
+import Firebase
 
 class DeathViewController : UIViewController
 {
+    var ref: FIRDatabaseReference!
+    var refHandle: UInt!
+    
     override func viewDidLoad()
     {
         
@@ -30,7 +34,26 @@ class DeathViewController : UIViewController
     
     func tweetSLVC()
     {
+        ref = FIRDatabase.database().reference()
+        refHandle = ref.observeEventType(FIRDataEventType.Value, withBlock: {
+            (snapshot) in let dataDict = snapshot.value as! [String: AnyObject]
+        })
         let highscore = NSUserDefaults.standardUserDefaults().valueForKey("Highscore") as! NSInteger!
+        let userID = (FIRAuth.auth()?.currentUser?.uid)!
+        ref.child("Users").child(userID).observeSingleEventType(.Value) { (snapshot) in
+            let score = snapshot.value!["Highscore"] as! Int
+            if score == nil
+            {
+                
+            }
+            else
+            {
+                if(highscore > score)
+                {
+                    
+                }
+            }
+        }
         
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             let twitterController:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)

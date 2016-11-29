@@ -9,14 +9,19 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 class LoginViewController: UIViewController
 {
+    var ref: FIRDatabaseReference?
+    
     @IBOutlet weak var Email: UITextField!
     
     @IBOutlet weak var Password: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = FIRDatabase.database().reference()
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,6 +38,7 @@ class LoginViewController: UIViewController
         }
         else
         {
+            
             let create = UIAlertController(title: "create", message: "Account created and Loged in", preferredStyle: UIAlertControllerStyle.Alert)
             create.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: {(action: UIAlertAction!) in
                 self.moveOn(sender)}))
