@@ -8,14 +8,19 @@
 
 import SpriteKit
 import AVFoundation
+import UIKit
 
 class SaturnScene: SKScene, SKPhysicsContactDelegate {
     
     let level = Level()
     var collisionDelegate: DeathSceneDelegate?
     
+    var firstTouch:Bool = false
+    
     override func didMoveToView(view: SKView) {
         
+        level.height = self.size.height
+        level.width = self.size.width
         
         // setup physics
         self.physicsWorld.contactDelegate = self
@@ -43,16 +48,32 @@ class SaturnScene: SKScene, SKPhysicsContactDelegate {
         self.view?.addSubview(score)
         self.view?.addSubview(highscore)
         
-        // enemy timer
-        _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(MarsScene.spawnEnemy), userInfo: nil, repeats: true)
         
+        let pauseButton = level.pauseButton
+        pauseButton.position = CGPoint(x:self.size.width - 200, y: self.size.height - 130)
+        addChild(pauseButton)
+        
+        let saveButton = level.saveButton
+        saveButton.position = CGPoint(x:self.size.width - 100, y: self.size.height - 130)
+        addChild(saveButton)
+        
+        scene!.view!.paused = true
     }
     
     func died() {
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = mainStoryboard.instantiateViewControllerWithIdentifier("Death") as! DeathViewController
+        let savescoreDefault = NSUserDefaults.standardUserDefaults()
+        savescoreDefault.setValue(0, forKey: "Savescore")
+        savescoreDefault.synchronize()
+        level.audioPlayer?.stop()
+        
         self.collisionDelegate!.launchViewController(self)
+    }
+    
+    deinit {
+        print("Deinit scene")
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -61,6 +82,7 @@ class SaturnScene: SKScene, SKPhysicsContactDelegate {
         let secondBody : SKPhysicsBody = contact.bodyB
         
         let randomIntForWeaponPowerup:UInt32 = arc4random_uniform(4)
+        let randomIntForSpawnPowerup:UInt32 = arc4random_uniform(4)
         
         if ((firstBody.categoryBitMask == physicsCategory.enemy) && secondBody.categoryBitMask == physicsCategory.player) {
             
@@ -83,11 +105,14 @@ class SaturnScene: SKScene, SKPhysicsContactDelegate {
                     
                     enemy_i.health = enemy_i.health - 1
                     
-                    if (enemy_i.health == 0) {
-                        
+                    if (enemy_i.health <= 0)
+                    {
                         level.PlayerCollisionWithBullet(firstBody.node as! SKSpriteNode, bullet: secondBody.node as! SKSpriteNode)
                         let pos:CGPoint = (enemy?.position)!
-                        spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
+                        
+                        if randomIntForSpawnPowerup == 1 {
+                            spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
+                        }
                         level.enemylist.removeAtIndex(i)
                     }
                 }
@@ -114,17 +139,24 @@ class SaturnScene: SKScene, SKPhysicsContactDelegate {
                     
                     enemy_i.health = enemy_i.health - 1
                     
-                    if (enemy_i.health == 0) {
+                    if (enemy_i.health <= 0) {
                         
                         level.PlayerCollisionWithBullet(secondBody.node as! SKSpriteNode, bullet: firstBody.node as! SKSpriteNode)
-                        let enemy  = firstBody.node
                         let pos:CGPoint = (enemy?.position)!
-                        spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
+                        
+                        if randomIntForSpawnPowerup == 1 {
+                            spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
+                        }
                         level.enemylist.removeAtIndex(i)
                     }
                 }
             }
         }
+    }
+    
+    func pauseGame()
+    {
+        scene!.view!.paused = true
     }
     
     func spawnPowerup(pos:CGPoint, weaponNum:UInt32) {
@@ -170,10 +202,12 @@ class SaturnScene: SKScene, SKPhysicsContactDelegate {
         if random_num % 2 == 0 {
             
             enemy = Enemy(type: "cyclops_red", frames: 0.25, speed:2.5)
+            enemy.node.name = "cyclops_red"
         }
         else {
             
             enemy = Enemy(type: "spider_blue", frames: 0.25, speed:2.0)
+            enemy.node.name = "spider_red"
         }
         let minValue = self.size.height / 6
         let maxValue = self.size.width
@@ -219,6 +253,14 @@ class SaturnScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
         
+        if (firstTouch == false) {
+            
+            firstTouch = true
+            scene!.view!.paused = false
+            
+            level.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(MarsScene.spawnEnemy), userInfo: nil, repeats: true)
+        }
+        
         for touch in touches {
             let location = touch.locationInNode(self)
             
@@ -226,6 +268,25 @@ class SaturnScene: SKScene, SKPhysicsContactDelegate {
             if level.button.containsPoint(location) {
                 
                 spawnBullets()
+            }
+            else if level.pauseButton.containsPoint(location) {
+                
+                if (scene!.view!.paused == true) {
+                    scene!.view!.paused = false
+                    level.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(MarsScene.spawnEnemy), userInfo: nil, repeats: true)
+                }
+                else {
+                    scene!.view!.paused = true
+                    level.timer.invalidate()
+                }
+            }
+            else if level.saveButton.containsPoint(location) {
+                
+                let savescoreDefault = NSUserDefaults.standardUserDefaults()
+                savescoreDefault.setValue(level.score, forKey: "Savescore")
+                savescoreDefault.synchronize()
+                level.score = savescoreDefault.valueForKey("Savescore") as! NSInteger!
+                print ("saved score")
             }
             else {
                 

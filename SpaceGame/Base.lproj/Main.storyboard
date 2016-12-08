@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rqT-7J-ql0">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rqT-7J-ql0">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -265,15 +265,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="qi4-MX-wO3">
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEd-Qw-N7c" userLabel="Mercury">
-                                <rect key="frame" x="7" y="182" width="48" height="48"/>
-                                <state key="normal" backgroundImage="sprites/Mercury_.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="vKK-35-kUT" kind="show" id="9ic-yp-v4I"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXu-uI-5X6" userLabel="Mars">
                                 <rect key="frame" x="207" y="182" width="48" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -281,7 +272,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="O6N-dY-FVe" kind="show" id="aEA-DW-82M"/>
+                                    <action selector="marsButton:" destination="B6u-FX-rdo" eventType="touchUpInside" id="zVb-Dr-7Fd"/>
+                                    <segue destination="O6N-dY-FVe" kind="show" identifier="mars" id="aEA-DW-82M"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Mercury" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6O-sD-XBV">
@@ -297,6 +289,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="venusButton:" destination="B6u-FX-rdo" eventType="touchUpInside" id="Zx1-7C-pmY"/>
                                     <segue destination="7Id-PL-7pv" kind="show" id="nG1-HL-B46"/>
                                 </connections>
                             </button>
@@ -307,7 +300,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="2DP-hE-D92" kind="show" id="Mxn-T9-6m3"/>
+                                    <action selector="neptuneButton:" destination="B6u-FX-rdo" eventType="touchUpInside" id="zRg-1L-JwH"/>
+                                    <segue destination="2DP-hE-D92" kind="show" identifier="neptune" id="Mxn-T9-6m3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOW-Zt-vzm" userLabel="Earth">
@@ -317,6 +311,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="earthButton:" destination="B6u-FX-rdo" eventType="touchUpInside" id="pPU-Oi-o28"/>
                                     <segue destination="bb3-lH-LjK" kind="show" id="NHO-E4-KWF"/>
                                 </connections>
                             </button>
@@ -327,6 +322,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="saturnButton:" destination="B6u-FX-rdo" eventType="touchUpInside" id="98o-DU-Mu4"/>
                                     <segue destination="H2L-8U-ByD" kind="show" id="V3J-sQ-eNq"/>
                                 </connections>
                             </button>
@@ -337,7 +333,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="nKM-02-0Tw" kind="show" id="QUf-rZ-IiH"/>
+                                    <action selector="jupiterButton:" destination="B6u-FX-rdo" eventType="touchUpInside" id="IKz-38-aq7"/>
+                                    <segue destination="nKM-02-0Tw" kind="show" identifier="jupiter" id="QUf-rZ-IiH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Venus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3Y-9Y-PM5">
@@ -389,6 +386,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="uranusButton:" destination="B6u-FX-rdo" eventType="touchUpInside" id="zWs-QZ-X3L"/>
                                     <segue destination="Miu-mr-HXu" kind="show" id="UCH-uV-uQL"/>
                                 </connections>
                             </button>
@@ -397,6 +395,16 @@
                                 <state key="normal" title="Back to Main Menu"/>
                                 <connections>
                                     <segue destination="eWh-dK-bl2" kind="show" id="Q3O-vb-K0M"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEd-Qw-N7c" userLabel="Mercury">
+                                <rect key="frame" x="7" y="182" width="48" height="48"/>
+                                <state key="normal" backgroundImage="sprites/Mercury_.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="mercuryButton:" destination="B6u-FX-rdo" eventType="touchUpInside" id="htH-7P-8uT"/>
+                                    <segue destination="vKK-35-kUT" kind="show" identifier="mercury" id="Brd-nf-flV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -510,14 +518,14 @@
                         <viewControllerLayoutGuide type="bottom" id="yuw-R5-hVz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kuw-q4-Jzk" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Frt-sP-LLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882" y="932"/>
+            <point key="canvasLocation" x="193" y="1027"/>
         </scene>
         <!--Neptune View Controller-->
         <scene sceneID="g4d-Kd-Yio">
@@ -535,7 +543,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blv-SK-asx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1687" y="730"/>
+            <point key="canvasLocation" x="1627" y="721"/>
         </scene>
         <!--Jupiter View Controller-->
         <scene sceneID="NjN-Gl-bY3">
@@ -553,7 +561,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLW-dM-stq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1389" y="237"/>
+            <point key="canvasLocation" x="1458" y="408"/>
         </scene>
         <!--Saturn View Controller-->
         <scene sceneID="NF3-fP-cqU">
@@ -607,7 +615,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7R7-k7-xil" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479" y="440"/>
+            <point key="canvasLocation" x="1111" y="944"/>
         </scene>
         <!--Earth View Controller-->
         <scene sceneID="O0l-ed-QT4">
@@ -659,6 +667,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="guv-8V-F4U"/>
-        <segue reference="qJW-EM-SWW"/>
+        <segue reference="Q3O-vb-K0M"/>
     </inferredMetricsTieBreakers>
 </document>

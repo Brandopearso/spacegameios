@@ -15,6 +15,8 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
     let level = Level()
     var collisionDelegate: DeathSceneDelegate?
     
+    var firstTouch:Bool = false
+    
     override func didMoveToView(view: SKView) {
         
         level.height = self.size.height
@@ -23,7 +25,7 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         // setup physics
         self.physicsWorld.contactDelegate = self
         self.view!.multipleTouchEnabled = true;
-
+        
         // add player
         let player = level.player
         player.node.position = CGPointMake((self.size.width / 5), (self.size.height / 2))
@@ -45,9 +47,7 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         let highscore = level.highscoreLabel
         self.view?.addSubview(score)
         self.view?.addSubview(highscore)
-
-        // enemy timer
-        _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(MarsScene.spawnEnemy), userInfo: nil, repeats: true)
+        
         
         let pauseButton = level.pauseButton
         pauseButton.position = CGPoint(x:self.size.width - 200, y: self.size.height - 130)
@@ -56,6 +56,8 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         let saveButton = level.saveButton
         saveButton.position = CGPoint(x:self.size.width - 100, y: self.size.height - 130)
         addChild(saveButton)
+        
+        scene!.view!.paused = true
     }
     
     func died() {
@@ -65,8 +67,13 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         let savescoreDefault = NSUserDefaults.standardUserDefaults()
         savescoreDefault.setValue(0, forKey: "Savescore")
         savescoreDefault.synchronize()
+        level.audioPlayer?.stop()
         
         self.collisionDelegate!.launchViewController(self)
+    }
+    
+    deinit {
+        print("Deinit scene")
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -186,7 +193,7 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         powerup.physicsBody?.dynamic = true
         self.addChild(powerup)
     }
-
+    
     
     func spawnEnemy() {
         
@@ -224,7 +231,7 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         
         //add bullet to the scene
         if (level.player.weapon == 0) {
-
+            
             self.addChild(bullet)
         }
         else if (level.player.weapon == 1) {
@@ -246,6 +253,14 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
         
+        if (firstTouch == false) {
+            
+            firstTouch = true
+            scene!.view!.paused = false
+            
+            level.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(MarsScene.spawnEnemy), userInfo: nil, repeats: true)
+        }
+        
         for touch in touches {
             let location = touch.locationInNode(self)
             
@@ -258,9 +273,11 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
                 
                 if (scene!.view!.paused == true) {
                     scene!.view!.paused = false
+                    level.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(MarsScene.spawnEnemy), userInfo: nil, repeats: true)
                 }
                 else {
                     scene!.view!.paused = true
+                    level.timer.invalidate()
                 }
             }
             else if level.saveButton.containsPoint(location) {
@@ -283,9 +300,9 @@ class MarsScene: SKScene, SKPhysicsContactDelegate {
         
         for touch in touches {
             let location = touch.locationInNode(self)
-                
-                level.player.node.position.x = location.x + 130
-                level.player.node.position.y = location.y
+            
+            level.player.node.position.x = location.x + 130
+            level.player.node.position.y = location.y
             
             if level.button.containsPoint(location) {
                 

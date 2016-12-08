@@ -9,11 +9,9 @@
 import Foundation
 import SpriteKit
 import AVFoundation
-import Firebase
-import FirebaseDatabase
 
 class Level {
-    
+    var timer:NSTimer! = nil
     var player:Player = Player()
     var score: Int = 0
     var highscore: Int = 0
@@ -28,9 +26,10 @@ class Level {
     var enemylist = [Enemy]()
     var width:CGFloat = 0
     var height:CGFloat = 0
-    var ref: FIRDatabaseReference?
-
+    
+    
     init() {
+        
         self.button = spawnFireButton()
         makeBackground()
         makeScoreLabel()
@@ -38,32 +37,6 @@ class Level {
         playMusic()
         self.pauseButton = spawnPauseButton()
         self.saveButton = spawnSaveButton()
-        
-        ref = FIRDatabase.database().reference().child("Users")
-        var email = (FIRAuth.auth()?.currentUser?.email)!
-        email = email.stringByReplacingOccurrencesOfString(".", withString: ",")
-        ref = ref!.child(email)
-        ref!.observeEventType(.Value, withBlock:  { (snapshot) in
-            if snapshot.value is NSNull{
-                
-            }
-            else
-            {
-                if let score = snapshot.value!.objectForKey("Highscore") as? Int
-                {
-                    self.highscore = score
-                    print(self.highscore)
-                }
-                else
-                {
-                    print("it was nil")
-                }
-            }
-            
-            })
-        {(error) in
-            print("error")
-        }
         
         let HighscoreDefault = NSUserDefaults.standardUserDefaults()
         if(HighscoreDefault.valueForKey("Highscore") == nil)
@@ -83,8 +56,7 @@ class Level {
             savescoreDefault.setValue(0, forKey: "Savescore")
             savescoreDefault.synchronize()
         }
-        
-        //highscore = HighscoreDefault.valueForKey("Highscore") as! NSInteger!
+        highscore = HighscoreDefault.valueForKey("Highscore") as! NSInteger!
     }
     
     
@@ -180,7 +152,7 @@ class Level {
         scoreLabel.backgroundColor = UIColor.blackColor()
         scoreLabel.textColor = UIColor.whiteColor()
         scoreLabel.adjustsFontSizeToFitWidth = true
-
+        
     }
     
     func makeHighScoreLabel()
@@ -190,7 +162,7 @@ class Level {
         highscoreLabel.backgroundColor = UIColor.blackColor()
         highscoreLabel.textColor = UIColor.whiteColor()
         highscoreLabel.adjustsFontSizeToFitWidth = true
-
+        
     }
     
     func spawnFireButton() -> SKSpriteNode {

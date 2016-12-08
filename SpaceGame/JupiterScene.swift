@@ -15,6 +15,8 @@ class JupiterScene: SKScene, SKPhysicsContactDelegate {
     let level = Level()
     var collisionDelegate: DeathSceneDelegate?
     
+    var firstTouch:Bool = false
+    
     override func didMoveToView(view: SKView) {
         
         level.height = self.size.height
@@ -46,8 +48,6 @@ class JupiterScene: SKScene, SKPhysicsContactDelegate {
         self.view?.addSubview(score)
         self.view?.addSubview(highscore)
         
-        // enemy timer
-        _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(MarsScene.spawnEnemy), userInfo: nil, repeats: true)
         
         let pauseButton = level.pauseButton
         pauseButton.position = CGPoint(x:self.size.width - 200, y: self.size.height - 130)
@@ -56,6 +56,8 @@ class JupiterScene: SKScene, SKPhysicsContactDelegate {
         let saveButton = level.saveButton
         saveButton.position = CGPoint(x:self.size.width - 100, y: self.size.height - 130)
         addChild(saveButton)
+        
+        scene!.view!.paused = true
     }
     
     func died() {
@@ -65,8 +67,13 @@ class JupiterScene: SKScene, SKPhysicsContactDelegate {
         let savescoreDefault = NSUserDefaults.standardUserDefaults()
         savescoreDefault.setValue(0, forKey: "Savescore")
         savescoreDefault.synchronize()
+        level.audioPlayer?.stop()
         
         self.collisionDelegate!.launchViewController(self)
+    }
+    
+    deinit {
+        print("Deinit scene")
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -195,12 +202,12 @@ class JupiterScene: SKScene, SKPhysicsContactDelegate {
         if random_num % 2 == 0 {
             
             enemy = Enemy(type: "squid_red", frames: 0.25, speed:3.0)
-            enemy.node.name = "squid_red"
+            enemy.node.name = "cyclops_red"
         }
         else {
             
             enemy = Enemy(type: "bee_blue", frames: 0.25, speed:1.6)
-            enemy.node.name = "bee_blue"
+            enemy.node.name = "spider_red"
         }
         let minValue = self.size.height / 6
         let maxValue = self.size.width
@@ -246,6 +253,14 @@ class JupiterScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
         
+        if (firstTouch == false) {
+            
+            firstTouch = true
+            scene!.view!.paused = false
+            
+            level.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(MarsScene.spawnEnemy), userInfo: nil, repeats: true)
+        }
+        
         for touch in touches {
             let location = touch.locationInNode(self)
             
@@ -258,9 +273,11 @@ class JupiterScene: SKScene, SKPhysicsContactDelegate {
                 
                 if (scene!.view!.paused == true) {
                     scene!.view!.paused = false
+                    level.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(MarsScene.spawnEnemy), userInfo: nil, repeats: true)
                 }
                 else {
                     scene!.view!.paused = true
+                    level.timer.invalidate()
                 }
             }
             else if level.saveButton.containsPoint(location) {
