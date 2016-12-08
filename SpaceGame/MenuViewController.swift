@@ -7,9 +7,22 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MenuViewController: UIViewController {
     
+    @IBAction func logout(sender: AnyObject) {
+        let logging = UIAlertController(title: "Log out", message: "Logout Successed", preferredStyle: UIAlertControllerStyle.Alert)
+        logging.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {action in self.moveOn(sender)}))
+        self.presentViewController(logging, animated: true, completion: nil)
+
+    }
+    
+    func moveOn(sender: AnyObject)
+    {
+        self.performSegueWithIdentifier("logout", sender: sender)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,5 +55,15 @@ class MenuViewController: UIViewController {
     override func shouldAutorotate() -> Bool {
         return false;
     }
+   /* @IBAction func Logout(sender: AnyObject){
+        try! FIRAuth.auth()!.signOut()
+        let logging = UIAlertController(title: "Log out", message: "Logout Successed", preferredStyle: UIAlertControllerStyle.Alert)
+        logging.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {action in self.moveOn(sender)}))
+        self.presentViewController(logging, animated: true, completion: nil)
+    }
+    func moveOn(sender: AnyObject)
+    {
+        self.performSegueWithIdentifier("logout", sender: sender)
+    }*/
 
 }

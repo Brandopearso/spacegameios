@@ -15,14 +15,14 @@
                         <viewControllerLayoutGuide type="bottom" id="EkP-4B-l1g"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xNj-c3-ERP">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Em-oK-TYO">
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8V-3b-8mQ">
-                                <rect key="frame" x="92" y="154" width="62" height="30"/>
+                                <rect key="frame" x="137" y="192" width="62" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="8fx-Dd-REV"/>
                                 </constraints>
@@ -39,14 +39,14 @@
                                     <segue destination="B6u-FX-rdo" kind="show" id="guv-8V-F4U"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Solar Space" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X8-fh-uN3">
-                                <rect key="frame" x="179" y="51" width="211" height="64"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Solar Space" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X8-fh-uN3">
+                                <rect key="frame" x="263" y="49" width="211" height="64"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8we-Og-kTS">
-                                <rect key="frame" x="410" y="154" width="67" height="30"/>
+                                <rect key="frame" x="335" y="192" width="67" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="67" id="Fmz-gh-PgD"/>
                                 </constraints>
@@ -59,8 +59,15 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="229" y="285" width="70" height="30"/>
                                 </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QG-Kg-fxp">
+                                <rect key="frame" x="555" y="192" width="62" height="28.5"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <segue destination="Jwt-rK-ajZ" kind="show" id="rUg-qU-Iv2"/>
+                                    <action selector="logout:" destination="eWh-dK-bl2" eventType="touchUpInside" id="9WY-gM-vf6"/>
+                                    <segue destination="rqT-7J-ql0" kind="show" identifier="logout" id="IUT-lT-OaH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -70,12 +77,14 @@
                             <constraint firstItem="r8V-3b-8mQ" firstAttribute="top" secondItem="kEO-VY-enl" secondAttribute="bottom" constant="171" id="Uqc-nB-H7f"/>
                             <constraint firstItem="r8V-3b-8mQ" firstAttribute="top" secondItem="7X8-fh-uN3" secondAttribute="bottom" constant="23" id="Zrs-33-UXq"/>
                             <constraint firstItem="r8V-3b-8mQ" firstAttribute="leading" secondItem="xNj-c3-ERP" secondAttribute="leading" constant="149" id="bDf-ju-17s"/>
+                            <constraint firstItem="7X8-fh-uN3" firstAttribute="centerX" secondItem="8we-Og-kTS" secondAttribute="centerX" id="cH1-XJ-guJ"/>
                             <constraint firstItem="8we-Og-kTS" firstAttribute="top" secondItem="7X8-fh-uN3" secondAttribute="bottom" constant="23" id="hN0-xs-hOQ"/>
                             <constraint firstAttribute="trailing" secondItem="8we-Og-kTS" secondAttribute="trailing" constant="133" id="jlv-e3-17m"/>
+                            <constraint firstItem="7X8-fh-uN3" firstAttribute="top" secondItem="kEO-VY-enl" secondAttribute="bottom" constant="31" id="vGe-v7-5tI"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAT-EU-RUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,43 +99,50 @@
                         <viewControllerLayoutGuide type="bottom" id="3Tz-SC-C8f"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OK6-Av-ApA">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="gWM-vv-Qbc">
                                 <rect key="frame" x="-20" y="0.0" width="804" height="507"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Solar Space" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMe-aS-Ga9">
-                                <rect key="frame" x="179" y="39" width="211" height="64"/>
+                                <rect key="frame" x="277" y="28" width="211" height="64"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Do6-0G-tSQ">
-                                <rect key="frame" x="200" y="151" width="298" height="30"/>
+                                <rect key="frame" x="330" y="143" width="298" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQG-QG-Dsf">
-                                <rect key="frame" x="121" y="151" width="97" height="30"/>
+                                <rect key="frame" x="210" y="143" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6u-Sh-aql">
-                                <rect key="frame" x="89" y="197" width="85" height="30"/>
+                                <rect key="frame" x="177" y="195" width="85" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="osU-qY-DdZ">
-                                <rect key="frame" x="200" y="197" width="298" height="30"/>
+                                <rect key="frame" x="330" y="192" width="298" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSZ-yh-PqW">
+                                <rect key="frame" x="345" y="313" width="46" height="30"/>
+                                <state key="normal" title="Log In"/>
+                                <connections>
+                                    <action selector="Login:" destination="rqT-7J-ql0" eventType="touchUpInside" id="dt4-br-Hlj"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxp-ZK-v9z">
-                                <rect key="frame" x="230" y="256" width="109" height="30"/>
-                                <state key="normal" title="Create/Log in"/>
+                                <rect key="frame" x="314" y="261" width="109" height="30"/>
+                                <state key="normal" title="Create Account"/>
                                 <connections>
                                     <action selector="CreateAcc:" destination="rqT-7J-ql0" eventType="touchUpInside" id="caS-sx-meO"/>
                                 </connections>
@@ -135,7 +151,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="Email" destination="Do6-0G-tSQ" id="Hnf-gS-vdR"/>
                         <outlet property="Password" destination="osU-qY-DdZ" id="Uhh-Pg-NI4"/>
@@ -155,23 +171,14 @@
                         <viewControllerLayoutGuide type="bottom" id="P3d-my-Teb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IUb-KF-3F1">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="L7C-iS-R2s">
-                                <rect key="frame" x="-1" y="20" width="737" height="320"/>
+                                <rect key="frame" x="0.0" y="0.0" width="773" height="466"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erl-nw-Q24">
-                                <rect key="frame" x="181" y="61" width="206" height="52"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="164" y="61" width="272" height="94"/>
-                                </variation>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a42-7Y-XVt">
-                                <rect key="frame" x="87" y="171" width="67" height="17"/>
+                                <rect key="frame" x="135" y="225" width="67" height="17"/>
                                 <state key="normal" title="Music On">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -190,7 +197,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsN-Xx-eGr">
-                                <rect key="frame" x="413" y="171" width="67" height="17"/>
+                                <rect key="frame" x="560" y="225" width="67" height="17"/>
                                 <state key="normal" title="SFX On">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -201,6 +208,15 @@
                                     <action selector="sfxToggleButtonHandler:" destination="Jwt-rK-ajZ" eventType="touchUpInside" id="1zD-gP-jfZ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erl-nw-Q24">
+                                <rect key="frame" x="265" y="69" width="206" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="164" y="61" width="272" height="94"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -218,13 +234,13 @@
                         </constraints>
                         <variation key="heightClass=compact">
                             <mask key="subviews">
-                                <include reference="erl-nw-Q24"/>
                                 <include reference="a42-7Y-XVt"/>
                                 <include reference="GsN-Xx-eGr"/>
+                                <include reference="erl-nw-Q24"/>
                             </mask>
                         </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="musicToggleButton" destination="a42-7Y-XVt" id="Rwc-gz-t9y"/>
                         <outlet property="sfxToggleButton" destination="GsN-Xx-eGr" id="QFV-ev-yMj"/>
@@ -426,39 +442,39 @@
                         <viewControllerLayoutGuide type="bottom" id="30A-4G-iYf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2AD-0B-02C" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="5fG-ur-1NH">
-                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nST-WG-Bac">
-                                <rect key="frame" x="197" y="146" width="175" height="27"/>
+                                <rect key="frame" x="281" y="141" width="175" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Return to level select"/>
                                 <connections>
                                     <segue destination="B6u-FX-rdo" kind="show" id="xLc-tw-Z5N"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngd-oK-hSA">
-                                <rect key="frame" x="210" y="207" width="146" height="60"/>
-                                <state key="normal" title="Share to Twitter"/>
-                                <connections>
-                                    <action selector="sendTweetButtonHandler:" destination="NPW-6L-A15" eventType="touchUpInside" id="Efd-M9-xeE"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You Died" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSL-1R-cM2">
-                                <rect key="frame" x="223" y="75" width="123" height="37"/>
+                                <rect key="frame" x="307" y="76" width="123" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.04677283753" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCA-BY-eeV">
-                                <rect key="frame" x="216" y="176" width="137" height="49"/>
+                                <rect key="frame" x="300" y="176" width="137" height="49"/>
                                 <state key="normal" title="Share to Facebook"/>
                                 <connections>
                                     <action selector="sendFbButtonHandler:" destination="NPW-6L-A15" eventType="touchUpInside" id="n6T-4V-u56"/>
                                     <action selector="sendTweetButtonHandler:" destination="NPW-6L-A15" eventType="touchUpInside" id="3bp-wi-fg9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngd-oK-hSA">
+                                <rect key="frame" x="295" y="214" width="146" height="60"/>
+                                <state key="normal" title="Share to Twitter"/>
+                                <connections>
+                                    <action selector="sendTweetButtonHandler:" destination="NPW-6L-A15" eventType="touchUpInside" id="Efd-M9-xeE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -479,7 +495,7 @@
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="can-fa-z4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -512,7 +528,7 @@
                         <viewControllerLayoutGuide type="bottom" id="D4j-aa-ojf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CHD-m3-jRh" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -643,6 +659,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="guv-8V-F4U"/>
-        <segue reference="wLm-Ke-395"/>
+        <segue reference="qJW-EM-SWW"/>
     </inferredMetricsTieBreakers>
 </document>
