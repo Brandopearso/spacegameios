@@ -18,13 +18,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Em-oK-TYO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Em-oK-TYO">
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8V-3b-8mQ">
-                                <rect key="frame" x="137" y="192" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QG-Kg-fxp">
+                                <rect key="frame" x="412" y="101" width="62" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="8fx-Dd-REV"/>
+                                    <constraint firstAttribute="height" constant="29" id="pNh-Ay-JoA"/>
+                                </constraints>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout:" destination="eWh-dK-bl2" eventType="touchUpInside" id="9WY-gM-vf6"/>
+                                    <segue destination="rqT-7J-ql0" kind="show" identifier="logout" id="IUT-lT-OaH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Solar Space" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X8-fh-uN3">
+                                <rect key="frame" x="263" y="28" width="211" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8V-3b-8mQ">
+                                <rect key="frame" x="263" y="100" width="62" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="62" id="WBa-DI-zzI"/>
                                 </constraints>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,17 +58,8 @@
                                     <segue destination="B6u-FX-rdo" kind="show" id="guv-8V-F4U"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Solar Space" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X8-fh-uN3">
-                                <rect key="frame" x="263" y="49" width="211" height="64"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8we-Og-kTS">
-                                <rect key="frame" x="335" y="192" width="67" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="67" id="Fmz-gh-PgD"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8we-Og-kTS">
+                                <rect key="frame" x="335" y="94" width="67" height="42"/>
                                 <state key="normal" title="Settings">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -59,28 +69,28 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="229" y="285" width="70" height="30"/>
                                 </variation>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QG-Kg-fxp">
-                                <rect key="frame" x="555" y="192" width="62" height="28.5"/>
-                                <state key="normal" title="Log Out">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <connections>
-                                    <action selector="logout:" destination="eWh-dK-bl2" eventType="touchUpInside" id="9WY-gM-vf6"/>
-                                    <segue destination="rqT-7J-ql0" kind="show" identifier="logout" id="IUT-lT-OaH"/>
+                                    <segue destination="Jwt-rK-ajZ" kind="show" id="HWe-qU-30Z"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="r8V-3b-8mQ" firstAttribute="baseline" secondItem="8we-Og-kTS" secondAttribute="baseline" id="GQB-cG-ju0"/>
-                            <constraint firstItem="r8V-3b-8mQ" firstAttribute="top" secondItem="kEO-VY-enl" secondAttribute="bottom" constant="171" id="Uqc-nB-H7f"/>
-                            <constraint firstItem="r8V-3b-8mQ" firstAttribute="top" secondItem="7X8-fh-uN3" secondAttribute="bottom" constant="23" id="Zrs-33-UXq"/>
-                            <constraint firstItem="r8V-3b-8mQ" firstAttribute="leading" secondItem="xNj-c3-ERP" secondAttribute="leading" constant="149" id="bDf-ju-17s"/>
-                            <constraint firstItem="7X8-fh-uN3" firstAttribute="centerX" secondItem="8we-Og-kTS" secondAttribute="centerX" id="cH1-XJ-guJ"/>
-                            <constraint firstItem="8we-Og-kTS" firstAttribute="top" secondItem="7X8-fh-uN3" secondAttribute="bottom" constant="23" id="hN0-xs-hOQ"/>
-                            <constraint firstAttribute="trailing" secondItem="8we-Og-kTS" secondAttribute="trailing" constant="133" id="jlv-e3-17m"/>
-                            <constraint firstItem="7X8-fh-uN3" firstAttribute="top" secondItem="kEO-VY-enl" secondAttribute="bottom" constant="31" id="vGe-v7-5tI"/>
+                            <constraint firstItem="8we-Og-kTS" firstAttribute="leading" secondItem="r8V-3b-8mQ" secondAttribute="trailing" constant="10" id="18J-xw-tUt"/>
+                            <constraint firstItem="7Em-oK-TYO" firstAttribute="bottom" secondItem="EkP-4B-l1g" secondAttribute="top" id="CjO-Ef-LAg"/>
+                            <constraint firstItem="7Em-oK-TYO" firstAttribute="top" secondItem="7QG-Kg-fxp" secondAttribute="bottom" constant="-130" id="Fpk-RC-FSH"/>
+                            <constraint firstItem="7Em-oK-TYO" firstAttribute="top" secondItem="8we-Og-kTS" secondAttribute="bottom" constant="-136" id="J22-2C-q6T"/>
+                            <constraint firstItem="7Em-oK-TYO" firstAttribute="leading" secondItem="xNj-c3-ERP" secondAttribute="leading" id="LAe-Xl-O6o"/>
+                            <constraint firstItem="7X8-fh-uN3" firstAttribute="top" secondItem="kEO-VY-enl" secondAttribute="bottom" constant="8" symbolic="YES" id="ShK-O5-BKR"/>
+                            <constraint firstItem="EkP-4B-l1g" firstAttribute="top" secondItem="r8V-3b-8mQ" secondAttribute="bottom" constant="284" id="U0k-6r-Fbc"/>
+                            <constraint firstItem="7Em-oK-TYO" firstAttribute="top" secondItem="r8V-3b-8mQ" secondAttribute="bottom" constant="-130" id="X2Z-89-Ppn"/>
+                            <constraint firstAttribute="trailing" secondItem="7Em-oK-TYO" secondAttribute="trailing" id="ana-BG-kiL"/>
+                            <constraint firstItem="r8V-3b-8mQ" firstAttribute="top" secondItem="7X8-fh-uN3" secondAttribute="bottom" constant="8" symbolic="YES" id="c8F-Pf-9oO"/>
+                            <constraint firstItem="7Em-oK-TYO" firstAttribute="top" secondItem="xNj-c3-ERP" secondAttribute="top" id="fjs-km-H8n"/>
+                            <constraint firstItem="7Em-oK-TYO" firstAttribute="top" secondItem="7X8-fh-uN3" secondAttribute="bottom" constant="-92" id="oIx-dJ-ida"/>
+                            <constraint firstItem="7QG-Kg-fxp" firstAttribute="leading" secondItem="8we-Og-kTS" secondAttribute="trailing" constant="10" id="sd2-rH-Py9"/>
+                            <constraint firstItem="7X8-fh-uN3" firstAttribute="leading" secondItem="r8V-3b-8mQ" secondAttribute="leading" id="wIm-zx-ZSk"/>
+                            <constraint firstItem="7X8-fh-uN3" firstAttribute="trailing" secondItem="7QG-Kg-fxp" secondAttribute="trailing" id="xUA-IW-fS4"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -102,53 +112,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="gWM-vv-Qbc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="gWM-vv-Qbc">
                                 <rect key="frame" x="-20" y="0.0" width="804" height="507"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Solar Space" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMe-aS-Ga9">
-                                <rect key="frame" x="277" y="28" width="211" height="64"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Do6-0G-tSQ">
-                                <rect key="frame" x="330" y="143" width="298" height="30"/>
+                                <rect key="frame" x="77" y="20" width="176" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQG-QG-Dsf">
-                                <rect key="frame" x="210" y="143" width="97" height="30"/>
+                                <rect key="frame" x="20" y="20" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6u-Sh-aql">
-                                <rect key="frame" x="177" y="195" width="85" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Password: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6u-Sh-aql">
+                                <rect key="frame" x="283" y="20" width="85" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="osU-qY-DdZ">
-                                <rect key="frame" x="330" y="192" width="298" height="30"/>
+                                <rect key="frame" x="376" y="20" width="187" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSZ-yh-PqW">
-                                <rect key="frame" x="345" y="313" width="46" height="30"/>
-                                <state key="normal" title="Log In"/>
-                                <connections>
-                                    <action selector="Login:" destination="rqT-7J-ql0" eventType="touchUpInside" id="dt4-br-Hlj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxp-ZK-v9z">
-                                <rect key="frame" x="314" y="261" width="109" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxp-ZK-v9z">
+                                <rect key="frame" x="271" y="192" width="109" height="30"/>
                                 <state key="normal" title="Create Account"/>
                                 <connections>
                                     <action selector="CreateAcc:" destination="rqT-7J-ql0" eventType="touchUpInside" id="caS-sx-meO"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Solar Space" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMe-aS-Ga9">
+                                <rect key="frame" x="220" y="145" width="211" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSZ-yh-PqW">
+                                <rect key="frame" x="302" y="217" width="46" height="30"/>
+                                <state key="normal" title="Log In"/>
+                                <connections>
+                                    <action selector="Login:" destination="rqT-7J-ql0" eventType="touchUpInside" id="dt4-br-Hlj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zxp-ZK-v9z" firstAttribute="centerX" secondItem="gWM-vv-Qbc" secondAttribute="centerX" constant="-56.5" id="3gV-nO-FKn"/>
+                            <constraint firstItem="sSZ-yh-PqW" firstAttribute="top" secondItem="zxp-ZK-v9z" secondAttribute="bottom" constant="-5" id="7vY-Pf-8n4"/>
+                            <constraint firstItem="VMe-aS-Ga9" firstAttribute="top" secondItem="a6u-Sh-aql" secondAttribute="bottom" constant="95" id="99a-aX-LGr"/>
+                            <constraint firstItem="sSZ-yh-PqW" firstAttribute="centerX" secondItem="gWM-vv-Qbc" secondAttribute="centerX" constant="-57" id="IhR-kd-hdx"/>
+                        </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -171,7 +187,7 @@
                         <viewControllerLayoutGuide type="bottom" id="P3d-my-Teb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IUb-KF-3F1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="L7C-iS-R2s">
@@ -196,6 +212,15 @@
                                     <segue destination="eWh-dK-bl2" kind="show" id="wLm-Ke-395"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erl-nw-Q24">
+                                <rect key="frame" x="265" y="69" width="206" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="164" y="61" width="272" height="94"/>
+                                </variation>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsN-Xx-eGr">
                                 <rect key="frame" x="560" y="225" width="67" height="17"/>
                                 <state key="normal" title="SFX On">
@@ -208,15 +233,6 @@
                                     <action selector="sfxToggleButtonHandler:" destination="Jwt-rK-ajZ" eventType="touchUpInside" id="1zD-gP-jfZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erl-nw-Q24">
-                                <rect key="frame" x="265" y="69" width="206" height="52"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="164" y="61" width="272" height="94"/>
-                                </variation>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -235,11 +251,12 @@
                         <variation key="heightClass=compact">
                             <mask key="subviews">
                                 <include reference="a42-7Y-XVt"/>
-                                <include reference="GsN-Xx-eGr"/>
                                 <include reference="erl-nw-Q24"/>
+                                <include reference="GsN-Xx-eGr"/>
                             </mask>
                         </variation>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="musicToggleButton" destination="a42-7Y-XVt" id="Rwc-gz-t9y"/>
@@ -248,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pie-Ij-7e3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="280" y="-423"/>
+            <point key="canvasLocation" x="-247" y="-467"/>
         </scene>
         <!--Level Selection View Controller-->
         <scene sceneID="2ik-q0-Lhl">
@@ -453,7 +470,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="5fG-ur-1NH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="space_no_planets.png" translatesAutoresizingMaskIntoConstraints="NO" id="5fG-ur-1NH">
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nST-WG-Bac">
@@ -490,14 +507,10 @@
                         <constraints>
                             <constraint firstItem="pCA-BY-eeV" firstAttribute="top" secondItem="Ngd-oK-hSA" secondAttribute="bottom" constant="13" id="6bL-P7-Gc6"/>
                             <constraint firstItem="PSL-1R-cM2" firstAttribute="centerY" secondItem="2AD-0B-02C" secondAttribute="centerY" id="DSO-Me-hGt"/>
-                            <constraint firstItem="5fG-ur-1NH" firstAttribute="leading" secondItem="2AD-0B-02C" secondAttribute="leadingMargin" constant="-20" id="GLJ-V3-qDo"/>
                             <constraint firstItem="Ngd-oK-hSA" firstAttribute="top" secondItem="nST-WG-Bac" secondAttribute="bottom" constant="8" id="QuC-Mg-7s2"/>
-                            <constraint firstItem="5fG-ur-1NH" firstAttribute="top" secondItem="2AD-0B-02C" secondAttribute="topMargin" id="SIQ-qx-3Kn"/>
                             <constraint firstItem="pCA-BY-eeV" firstAttribute="centerX" secondItem="2AD-0B-02C" secondAttribute="centerX" id="TQo-fp-3Wo"/>
                             <constraint firstItem="PSL-1R-cM2" firstAttribute="centerX" secondItem="2AD-0B-02C" secondAttribute="centerX" id="eQc-VD-Mok"/>
                             <constraint firstItem="Ngd-oK-hSA" firstAttribute="centerX" secondItem="2AD-0B-02C" secondAttribute="centerX" id="fue-gd-LUd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5fG-ur-1NH" secondAttribute="trailing" constant="-20" id="jLa-Tg-Efo"/>
-                            <constraint firstItem="30A-4G-iYf" firstAttribute="top" secondItem="5fG-ur-1NH" secondAttribute="bottom" id="pms-hD-5W9"/>
                             <constraint firstItem="nST-WG-Bac" firstAttribute="centerX" secondItem="2AD-0B-02C" secondAttribute="centerX" id="tt6-Ih-Tcg"/>
                             <constraint firstItem="nST-WG-Bac" firstAttribute="top" secondItem="PSL-1R-cM2" secondAttribute="bottom" constant="16" id="xXo-nX-qQv"/>
                         </constraints>
@@ -518,7 +531,7 @@
                         <viewControllerLayoutGuide type="bottom" id="yuw-R5-hVz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kuw-q4-Jzk" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -667,6 +680,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="guv-8V-F4U"/>
-        <segue reference="Q3O-vb-K0M"/>
+        <segue reference="wLm-Ke-395"/>
     </inferredMetricsTieBreakers>
 </document>

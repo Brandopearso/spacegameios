@@ -22,7 +22,7 @@ class LevelSelectionViewController : UIViewController {
     @IBAction func venusButton(sender: AnyObject) {
         
         var temp:UIViewController = topMostController()
-        let create = UIAlertController(title: "Mercury Fact", message: "Mercury is the smallest planet in the solar system.", preferredStyle: UIAlertControllerStyle.Alert)
+        let create = UIAlertController(title: "Venus Fact", message: "The surface temperature on Venus can reach 471 °C.", preferredStyle: UIAlertControllerStyle.Alert)
         create.addAction(UIAlertAction(title: "Touch anywhere on the screen to begin", style: UIAlertActionStyle.Cancel, handler: nil))
         temp.presentViewController(create, animated: true, completion: nil)
     }
@@ -39,7 +39,7 @@ class LevelSelectionViewController : UIViewController {
     @IBAction func earthButton(sender: AnyObject) {
         
         var temp:UIViewController = topMostController()
-        let create = UIAlertController(title: "Jupiter Fact", message: "Jupiter orbits the Sun once every 11.8 Earth years.", preferredStyle: UIAlertControllerStyle.Alert)
+        let create = UIAlertController(title: "Earth Fact", message: "71% of Earth is covered in water.", preferredStyle: UIAlertControllerStyle.Alert)
         create.addAction(UIAlertAction(title: "Touch anywhere on the screen to begin", style: UIAlertActionStyle.Cancel, handler: {(action: UIAlertAction!) in
             self.moveOn(sender, planet: "mars")}))
         temp.presentViewController(create, animated: true, completion: nil)
