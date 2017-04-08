@@ -30,7 +30,7 @@ class LevelSelectionViewController : UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let nextScene =  segue.destination as! MercuryViewController
+        let nextScene =  segue.destination as! GameViewController
         
         if (segue.identifier == "mercury") {
             

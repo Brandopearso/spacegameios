@@ -17,7 +17,7 @@ struct physicsCategory {
     static let powerup: UInt32 = 8
 }
 
-class MercuryViewController: UIViewController, DeathSceneDelegate {
+class GameViewController: UIViewController, DeathSceneDelegate {
     
     var level_name:String = ""
         
@@ -32,7 +32,7 @@ class MercuryViewController: UIViewController, DeathSceneDelegate {
         super.viewDidLoad()
         
 
-        if let scene = MercuryScene(fileNamed:"MercuryScene") {
+        if let scene = GameScene(fileNamed:"GameScene") {
             // Configure the view.
             let skView = self.view as! SKView
             skView.showsFPS = true

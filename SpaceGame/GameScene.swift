@@ -18,7 +18,7 @@ import SpriteKit
 import AVFoundation
 import UIKit
 
-class MercuryScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let level = Level()
     var collisionDelegate: DeathSceneDelegate?
@@ -57,7 +57,7 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
         self.view?.addSubview(highscore)
         
         // enemy timer
-        _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(MercuryScene.spawnEnemy), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(GameScene.spawnEnemy), userInfo: nil, repeats: true)
         
         // add pause button
         let pauseButton = level.pauseButton

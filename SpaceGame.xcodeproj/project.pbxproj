@@ -28,9 +28,9 @@
 		01C8DAA51DCED21300869D18 /* bee_blue.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 01C8DAA41DCED21300869D18 /* bee_blue.atlas */; };
 		01C8DAA71DCEE28100869D18 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8DAA61DCEE28000869D18 /* Player.swift */; };
 		01C8DAA91DCEE4D500869D18 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8DAA81DCEE4D500869D18 /* Level.swift */; };
-		01E9DA911DD1BEE700A0DCAC /* MercuryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9DA901DD1BEE700A0DCAC /* MercuryViewController.swift */; };
-		01E9DA941DD1BEF200A0DCAC /* MercuryScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01E9DA921DD1BEF200A0DCAC /* MercuryScene.sks */; };
-		01E9DA951DD1BEF200A0DCAC /* MercuryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9DA931DD1BEF200A0DCAC /* MercuryScene.swift */; };
+		01E9DA911DD1BEE700A0DCAC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9DA901DD1BEE700A0DCAC /* GameViewController.swift */; };
+		01E9DA941DD1BEF200A0DCAC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01E9DA921DD1BEF200A0DCAC /* GameScene.sks */; };
+		01E9DA951DD1BEF200A0DCAC /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9DA931DD1BEF200A0DCAC /* GameScene.swift */; };
 		CAA3702C1E922EED00C49842 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA3702B1E922EED00C49842 /* Enemy.swift */; };
 		F921A9DF1DBBDD4500439426 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F921A9DE1DBBDD4500439426 /* SettingsViewController.swift */; };
 		F9AC69C01DC0016E00D1EC7C /* Night-Winds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F9AC69BF1DC0016E00D1EC7C /* Night-Winds.mp3 */; };
@@ -82,9 +82,9 @@
 		01C8DAA41DCED21300869D18 /* bee_blue.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bee_blue.atlas; sourceTree = "<group>"; };
 		01C8DAA61DCEE28000869D18 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		01C8DAA81DCEE4D500869D18 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
-		01E9DA901DD1BEE700A0DCAC /* MercuryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercuryViewController.swift; sourceTree = "<group>"; };
-		01E9DA921DD1BEF200A0DCAC /* MercuryScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MercuryScene.sks; sourceTree = "<group>"; };
-		01E9DA931DD1BEF200A0DCAC /* MercuryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercuryScene.swift; sourceTree = "<group>"; };
+		01E9DA901DD1BEE700A0DCAC /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		01E9DA921DD1BEF200A0DCAC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		01E9DA931DD1BEF200A0DCAC /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		CAA3702B1E922EED00C49842 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Enemy.swift; path = ../../../Desktop/Enemy.swift; sourceTree = "<group>"; };
 		F921A9DE1DBBDD4500439426 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F9AC69BF1DC0016E00D1EC7C /* Night-Winds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Night-Winds.mp3"; path = "Assets.xcassets/Night-Winds.mp3"; sourceTree = "<group>"; };
@@ -149,9 +149,9 @@
 				01C8DA971DCEB70300869D18 /* squid_red.atlas */,
 				F9AC69BF1DC0016E00D1EC7C /* Night-Winds.mp3 */,
 				018384601D867A5200BAD87A /* AppDelegate.swift */,
-				01E9DA921DD1BEF200A0DCAC /* MercuryScene.sks */,
-				01E9DA931DD1BEF200A0DCAC /* MercuryScene.swift */,
-				01E9DA901DD1BEE700A0DCAC /* MercuryViewController.swift */,
+				01E9DA921DD1BEF200A0DCAC /* GameScene.sks */,
+				01E9DA931DD1BEF200A0DCAC /* GameScene.swift */,
+				01E9DA901DD1BEE700A0DCAC /* GameViewController.swift */,
 				01C8DAA81DCEE4D500869D18 /* Level.swift */,
 				01C8DAA61DCEE28000869D18 /* Player.swift */,
 				CAA3702B1E922EED00C49842 /* Enemy.swift */,
@@ -304,7 +304,7 @@
 				01C8DA991DCEB70300869D18 /* bee_red.atlas in Resources */,
 				F9AC69C01DC0016E00D1EC7C /* Night-Winds.mp3 in Resources */,
 				01C8DA9E1DCEB70300869D18 /* squid_blue.atlas in Resources */,
-				01E9DA941DD1BEF200A0DCAC /* MercuryScene.sks in Resources */,
+				01E9DA941DD1BEF200A0DCAC /* GameScene.sks in Resources */,
 				0158CE531DBB50EC00E8E90C /* sprites in Resources */,
 				0183846C1D867A5200BAD87A /* Assets.xcassets in Resources */,
 				01C8DA9B1DCEB70300869D18 /* cyclops_red.atlas in Resources */,
@@ -336,10 +336,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01E9DA951DD1BEF200A0DCAC /* MercuryScene.swift in Sources */,
+				01E9DA951DD1BEF200A0DCAC /* GameScene.swift in Sources */,
 				01C8DAA71DCEE28100869D18 /* Player.swift in Sources */,
 				F9AC69C21DC00AEB00D1EC7C /* MenuViewController.swift in Sources */,
-				01E9DA911DD1BEE700A0DCAC /* MercuryViewController.swift in Sources */,
+				01E9DA911DD1BEE700A0DCAC /* GameViewController.swift in Sources */,
 				01C8DAA91DCEE4D500869D18 /* Level.swift in Sources */,
 				018384611D867A5200BAD87A /* AppDelegate.swift in Sources */,
 				CAA3702C1E922EED00C49842 /* Enemy.swift in Sources */,
