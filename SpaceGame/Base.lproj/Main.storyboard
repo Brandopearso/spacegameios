@@ -202,7 +202,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vKK-35-kUT" kind="show" identifier="mars" id="5yP-1q-eiK"/>
+                                    <segue destination="vKK-35-kUT" kind="show" identifier="mars" id="pcE-RJ-bgd"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mercury" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6O-sD-XBV">
@@ -408,7 +408,7 @@
         <!--Mercury View Controller-->
         <scene sceneID="jdF-YL-zZL">
             <objects>
-                <viewController id="vKK-35-kUT" customClass="MercuryViewController" customModule="SpaceGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vKK-35-kUT" customClass="MercuryViewController" customModule="SpaceGame" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7GJ-NA-2qf"/>
                         <viewControllerLayoutGuide type="bottom" id="yuw-R5-hVz"/>
@@ -438,6 +438,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Q3O-vb-K0M"/>
         <segue reference="xLc-tw-Z5N"/>
-        <segue reference="NTe-UO-hgk"/>
+        <segue reference="pcE-RJ-bgd"/>
     </inferredMetricsTieBreakers>
 </document>

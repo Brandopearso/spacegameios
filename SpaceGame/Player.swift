@@ -40,7 +40,6 @@ class Player {
         //give illusion of spawning from ship
         bullet.zPosition = -5
         
-        // ???
         let actionDone = SKAction.removeFromParent()
         bullet.run(SKAction.sequence([action, actionDone]))
         
@@ -55,8 +54,6 @@ class Player {
         
         //forget gravity
         bullet.physicsBody?.affectedByGravity = false
-        
-        //???
         bullet.physicsBody?.isDynamic = false
         
         

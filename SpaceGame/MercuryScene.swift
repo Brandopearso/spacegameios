@@ -26,8 +26,7 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         
-        print("final level name:")
-        print(level_name)
+        // set level dimenstions
         level.height = self.size.height
         level.width = self.size.width
         
@@ -60,59 +59,76 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
         // enemy timer
         _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(MercuryScene.spawnEnemy), userInfo: nil, repeats: true)
         
+        // add pause button
         let pauseButton = level.pauseButton
         pauseButton?.position = CGPoint(x:self.size.width - 200, y: self.size.height - 130)
         addChild(pauseButton!)
         
+        // add save button
         let saveButton = level.saveButton
         saveButton?.position = CGPoint(x:self.size.width - 100, y: self.size.height - 130)
         addChild(saveButton!)
     }
     
     func died() {
-        
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        _ = mainStoryboard.instantiateViewController(withIdentifier: "Death") as! DeathViewController
+
+        // set save score to 0, since you died.
         let savescoreDefault = UserDefaults.standard
         savescoreDefault.setValue(0, forKey: "Savescore")
         savescoreDefault.synchronize()
         
+        // launch into death controller
         self.collisionDelegate!.launchViewController(self)
     }
     
-    func didBegin(_ contact: SKPhysicsContact) {
-        
-        let firstBody : SKPhysicsBody = contact.bodyA
-        let secondBody : SKPhysicsBody = contact.bodyB
-        
-        let randomIntForWeaponPowerup:UInt32 = arc4random_uniform(4)
-        let randomIntForSpawnPowerup:UInt32 = arc4random_uniform(4)
+    func playerenemy_collision(firstBody:SKPhysicsBody, secondBody:SKPhysicsBody) {
         
         if ((firstBody.categoryBitMask == physicsCategory.enemy) && secondBody.categoryBitMask == physicsCategory.player) {
             
             level.PlayerCollisionWithEnemy(secondBody.node as! SKSpriteNode, enemy: firstBody.node as! SKSpriteNode)
             died()
         }
-        if ((firstBody.categoryBitMask == physicsCategory.player) && secondBody.categoryBitMask == physicsCategory.enemy) {
+        else if ((firstBody.categoryBitMask == physicsCategory.player) && secondBody.categoryBitMask == physicsCategory.enemy) {
             
             level.PlayerCollisionWithEnemy(firstBody.node as! SKSpriteNode, enemy: secondBody.node as! SKSpriteNode)
             died()
         }
+    }
+    
+    // handles collision of bullets and enemies
+    func bulletenemy_collision(firstBody:SKPhysicsBody, secondBody:SKPhysicsBody) {
+     
+        // roll a random number to see if enemy is going to spawn a powerup
+        let randomIntForWeaponPowerup:UInt32 = arc4random_uniform(4)
+        let randomIntForSpawnPowerup:UInt32 = arc4random_uniform(4)
         
-        if ((firstBody.categoryBitMask == physicsCategory.enemy) && (secondBody.categoryBitMask == physicsCategory.bullet)) {
+        if ((firstBody.categoryBitMask == physicsCategory.enemy) && (secondBody.categoryBitMask == physicsCategory.bullet)
+            || (firstBody.categoryBitMask == physicsCategory.bullet) && (secondBody.categoryBitMask == physicsCategory.enemy)) {
             
-            let enemy  = firstBody.node
+            let enemy:SKSpriteNode
+            if firstBody.categoryBitMask == physicsCategory.enemy {
+                
+               enemy = firstBody.node as! SKSpriteNode
+            }
+            else if secondBody.categoryBitMask == physicsCategory.enemy {
+                
+                enemy = secondBody.node as! SKSpriteNode
+            }
+            else {
+                
+                return;
+            }
             
             for (i, enemy_i) in level.enemylist.enumerated() {
                 
-                if (enemy_i.node.isEqual(to: enemy!)) {
+                if (enemy_i.node.isEqual(to: enemy)) {
                     
                     enemy_i.health = enemy_i.health - 1
                     
                     if (enemy_i.health <= 0)
                     {
                         level.PlayerCollisionWithBullet(firstBody.node as! SKSpriteNode, bullet: secondBody.node as! SKSpriteNode)
-                        let pos:CGPoint = (enemy?.position)!
+                        let pos:CGPoint = (enemy.position)
                         
                         if randomIntForSpawnPowerup == 1 {
                             spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
@@ -122,6 +138,10 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
+    }
+    
+    // handles collisions from powerups and players
+    func powerupplayer_collision(firstBody:SKPhysicsBody, secondBody:SKPhysicsBody) {
         
         if((firstBody.categoryBitMask == physicsCategory.powerup) && (secondBody.categoryBitMask == physicsCategory.player)) {
             
@@ -132,37 +152,27 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
             
             level.PlayerCollisionWithPowerup(firstBody.node as! SKSpriteNode, powerup: secondBody.node as! SKSpriteNode)
         }
-        
-        if((firstBody.categoryBitMask == physicsCategory.bullet) && (secondBody.categoryBitMask == physicsCategory.enemy)){
-            
-            let enemy  = secondBody.node
-            
-            for (i, enemy_i) in level.enemylist.enumerated() {
-                
-                if (enemy_i.node.isEqual(to: enemy!)) {
-                    
-                    enemy_i.health = enemy_i.health - 1
-                    
-                    if (enemy_i.health <= 0) {
-                        
-                        level.PlayerCollisionWithBullet(secondBody.node as! SKSpriteNode, bullet: firstBody.node as! SKSpriteNode)
-                        let pos:CGPoint = (enemy?.position)!
-                        
-                        if randomIntForSpawnPowerup == 1 {
-                            spawnPowerup(pos, weaponNum:randomIntForWeaponPowerup)
-                        }
-                        level.enemylist.remove(at: i)
-                    }
-                }
-            }
-        }
     }
     
+    // runs when anything in the game collides
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        // the two things that collided
+        let firstBody : SKPhysicsBody = contact.bodyA
+        let secondBody : SKPhysicsBody = contact.bodyB
+        
+        playerenemy_collision(firstBody: firstBody, secondBody: secondBody)
+        powerupplayer_collision(firstBody: firstBody, secondBody: secondBody)
+        bulletenemy_collision(firstBody: firstBody, secondBody: secondBody)
+    }
+    
+    // pauses games
     func pauseGame()
     {
         scene!.view!.isPaused = true
     }
     
+    // spawns powerup
     func spawnPowerup(_ pos:CGPoint, weaponNum:UInt32) {
         
         var powerup:SKSpriteNode
@@ -198,116 +208,80 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(powerup)
     }
     
-    
-    func spawnEnemy() {
+    // returns a double of what speed each character has
+    func getSpeed(type:String) -> Double {
         
-        let random_num = arc4random_uniform(10)
-        var enemy:Enemy
-        if (self.level_name == "mercury") {
-            if random_num % 2 == 0 {
-                
-                enemy = Enemy(type: "squid_blue", frames: 0.25, speed:3.0)
-                enemy.node.name = "squid_blue"
-            }
-            else {
-                
-                enemy = Enemy(type: "squid_blue", frames: 0.25, speed:3.0)
-                enemy.node.name = "squid_blue"
-            }
-        }
-        else if (self.level_name == "venus") {
+        if type.contains("squid") {
             
-            if random_num % 2 == 0 {
-                
-                enemy = Enemy(type: "squid_blue", frames: 0.25, speed:3.0)
-                enemy.node.name = "squid_blue"
-            }
-            else {
-                
-                enemy = Enemy(type: "cyclops_blue", frames: 0.25, speed:2.5)
-                enemy.node.name = "cyclops_blue"
-            }
+            return 3.0
         }
-        else if (self.level_name == "earth"){
+        else if type.contains("spider") {
             
-            if random_num % 2 == 0 {
-                
-                enemy = Enemy(type: "spider_blue", frames: 0.25, speed:2.0)
-                enemy.node.name = "squid_blue"
-            }
-            else {
-                
-                enemy = Enemy(type: "cyclops_blue", frames: 0.25, speed:2.5)
-                enemy.node.name = "cyclops_blue"
-            }
+            return 2.5
         }
-        else if (self.level_name == "mars") {
+        else if type.contains("spider") {
             
-            if random_num % 2 == 0 {
-                
-                enemy = Enemy(type: "bee_blue", frames: 0.25, speed:1.6)
-                enemy.node.name = "bee_blue"
-            }
-            else {
-                
-                enemy = Enemy(type: "spider_blue", frames: 0.25, speed:2.0)
-                enemy.node.name = "spider_blue"
-            }
+            return 2.0
         }
-        else if (self.level_name == "jupiter") {
+        else if type.contains("bee") {
             
-            if random_num % 2 == 0 {
-                
-                enemy = Enemy(type: "squid_red", frames: 0.25, speed:3.0)
-                enemy.node.name = "squid_red"
-            }
-            else {
-                
-                enemy = Enemy(type: "bee_blue", frames: 0.25, speed:1.6)
-                enemy.node.name = "bee_blue"
-            }
-        }
-        else if (self.level_name == "saturn") {
-            
-            if random_num % 2 == 0 {
-                
-                enemy = Enemy(type: "cyclops_red", frames: 0.25, speed:2.5)
-            }
-            else {
-                
-                enemy = Enemy(type: "spider_blue", frames: 0.25, speed:2.0)
-            }
-        }
-        else if (self.level_name == "uranus") {
-            
-            if random_num % 2 == 0 {
-                
-                enemy = Enemy(type: "cyclops_red", frames: 0.25, speed:2.5)
-                enemy.node.name = "cyclops_red"
-            }
-            else {
-                
-                enemy = Enemy(type: "spider_red", frames: 0.25, speed:2.0)
-                enemy.node.name = "spider_red"
-            }
+            return 1.5
         }
         else {
             
-            if random_num % 2 == 0 {
-                
-                enemy = Enemy(type: "bee_red", frames: 0.25, speed:1.6)
-                enemy.node.name = "bee_red"
-            }
-            else {
-                
-                enemy = Enemy(type: "spider_red", frames: 0.25, speed:2.0)
-                enemy.node.name = "spider_red"
-            }
+            return 3.0
         }
+    }
+    
+    // spawns one of the two enemies you give it
+    func spawnEachEnemy(type1:String, type2:String) -> Enemy {
+        
+        let random_num = arc4random_uniform(10)
+        let enemy:Enemy
+        let type1_speed = getSpeed(type: type1)
+        let type2_speed = getSpeed(type: type2)
+        
+        if random_num % 2 == 0 {
+            
+            enemy = Enemy(type: type1, frames: 0.25, speed:type1_speed)
+        }
+        else {
+            
+            enemy = Enemy(type: type1, frames: 0.25, speed:type2_speed)
+        }
+        return enemy
+    }
+    
+    // spawns an enemy on a given interval
+    func spawnEnemy() {
+        
+        var enemy:Enemy
+        
+        switch self.level_name {
+            
+            case "mercury":
+                enemy = spawnEachEnemy(type1: "squid_blue", type2: "squid_blue")
+            case "venus":
+                enemy = spawnEachEnemy(type1: "cyclops_blue", type2: "squid_blue")
+            case "earth":
+                enemy = spawnEachEnemy(type1: "cyclops_blue", type2: "spider_blue")
+            case "mars":
+                enemy = spawnEachEnemy(type1: "spider_blue", type2: "bee_ blue")
+            case "jupiter":
+                enemy = spawnEachEnemy(type1: "bee_blue", type2: "squid_red")
+            case "saturn":
+                enemy = spawnEachEnemy(type1: "squid_red", type2: "cyclops_red")
+            case "uranus":
+                enemy = spawnEachEnemy(type1: "cyclops_red", type2: "spider_red")
+            case "neptune":
+                enemy = spawnEachEnemy(type1: "spider_red", type2: "bee_red")
+            default:
+                enemy = spawnEachEnemy(type1: "sqiud_blue", type2: "squid_blue")
+        }
+        
         let minValue = self.size.height / 6
         let maxValue = self.size.width
         let spawnPoint = UInt32(maxValue - minValue)
-        
         
         enemy.node.position = CGPoint(x: self.size.width, y: CGFloat(arc4random_uniform(spawnPoint)))
         enemy.height = self.size.height
@@ -317,6 +291,7 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(enemy.node)
     }
     
+    // spawns bullets
     func spawnBullets() {
         
         let action = SKAction.moveTo(x: self.size.width + 30, duration: 1.0)
@@ -345,6 +320,7 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    // runs when the user first touches the screen
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         /* Called when a touch begins */
         
@@ -381,6 +357,7 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    // runs whenever the player moves their finger around
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch in touches {
@@ -395,9 +372,4 @@ class MercuryScene: SKScene, SKPhysicsContactDelegate {
             
         }
     }
-    
-    override func update(_ currentTime: TimeInterval) {
-        /* Called before each frame is rendered */
-    }
-    
 }

@@ -96,8 +96,6 @@ class Level {
             
             self.player.weapon = 2
         }
-        print (powerup.name)
-        print (self.player.weapon)
     }
     
     func playBulletSound() {
